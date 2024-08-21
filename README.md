@@ -1,4 +1,4 @@
-# mgsh_sam9x7
+# Microchip Graphics Suite (MGS) Harmony Application Examples for the SAM9x7
 MGS Harmony Application Examples for the SAM9x7
 
 This repository contains application examples for the SAM9x7 MPU running the Microchip Graphics Suite (MGS) for Harmony. 
