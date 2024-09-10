@@ -2906,7 +2906,7 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="!@#harmonyUserData"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;UserData&gt;
   &lt;UserData dnOrder=&quot;0&quot;&gt;
-    &lt;GraphSettings canvasHeight=&quot;474&quot; canvasWidth=&quot;1129&quot; dnOrder=&quot;0&quot;/&gt;
+    &lt;GraphSettings canvasHeight=&quot;499&quot; canvasWidth=&quot;1129&quot; dnOrder=&quot;0&quot;/&gt;
     &lt;PowerProfiles dnOrder=&quot;1&quot;&gt;
       &lt;Profile dnOrder=&quot;0&quot; id=&quot;profile0&quot; name=&quot;Main&quot;/&gt;
     &lt;/PowerProfiles&gt;
@@ -2921,9 +2921,9 @@
         &lt;ElementPosition dnOrder=&quot;6&quot; id=&quot;gfx_display_comp_waveshare_4in_round_dsi&quot; x=&quot;269&quot; y=&quot;191&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;7&quot; id=&quot;gfx_legato&quot; x=&quot;966&quot; y=&quot;250&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;8&quot; id=&quot;le_gfx_driver_xlcdc&quot; x=&quot;668&quot; y=&quot;213&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;9&quot; id=&quot;le_gfx_gfx2d&quot; x=&quot;691&quot; y=&quot;338&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;9&quot; id=&quot;le_gfx_gfx2d&quot; x=&quot;709&quot; y=&quot;363&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;10&quot; id=&quot;mgs_web_sim&quot; x=&quot;647&quot; y=&quot;27&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;11&quot; id=&quot;plib_gfx2d&quot; x=&quot;562&quot; y=&quot;361&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;11&quot; id=&quot;plib_gfx2d&quot; x=&quot;442&quot; y=&quot;401&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;12&quot; id=&quot;rtt&quot; x=&quot;0&quot; y=&quot;92&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;13&quot; id=&quot;sys_input&quot; x=&quot;419&quot; y=&quot;92&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;14&quot; id=&quot;sys_time&quot; x=&quot;131&quot; y=&quot;46&quot;/&gt;
@@ -7187,7 +7187,7 @@
       </entry>
       <entry>
          <file>..\src\config\default\definitions.h</file>
-         <hash>1355d1cef0525a43533fce3296084a3cab76a38c87622e3aab618d23e1caafb9</hash>
+         <hash>642f453599ed59da2a1d1bd496d0ac27eebe1bada6d2b6cdf56062af27be898a</hash>
       </entry>
       <entry>
          <file>..\src\config\default\device.h</file>
@@ -7431,11 +7431,11 @@
       </entry>
       <entry>
          <file>..\src\config\default\gfx\legato\generated\image\le_gen_images.c</file>
-         <hash>e308972a6b57cbc2e5dd85789a8b9c62ac0ebadd0665ebd943b0a44954c231a0</hash>
+         <hash>f643e32047fc7020b7c6849692332a997c2b5f4aa45b7f0e694883035f3d34fa</hash>
       </entry>
       <entry>
          <file>..\src\config\default\gfx\legato\generated\le_gen_assets.h</file>
-         <hash>28c5d7c402364d56e9006c6570b30d4a7b5a328357f26d107fc400eb1b7cf3c2</hash>
+         <hash>eada530470dfac7225f88210e7f305d2c0cc3eebb0c69602eeda19495aacccdd</hash>
       </entry>
       <entry>
          <file>..\src\config\default\gfx\legato\generated\le_gen_globalpalette.c</file>
@@ -7471,7 +7471,7 @@
       </entry>
       <entry>
          <file>..\src\config\default\gfx\legato\generated\screen\le_gen_screen_Screen0.c</file>
-         <hash>35c5654bac3985225148d4d9d4b7a515a4e8f0cf26efcddf6d5373367793c9b9</hash>
+         <hash>cf96e80feb8cc1b1cb438cbab2d6612f814f61a3dcdb3a25e50fdbb3750f4410</hash>
       </entry>
       <entry>
          <file>..\src\config\default\gfx\legato\generated\screen\le_gen_screen_Screen0.h</file>
@@ -7479,7 +7479,7 @@
       </entry>
       <entry>
          <file>..\src\config\default\gfx\legato\generated\screen\le_gen_screen_Splash.c</file>
-         <hash>fcc577f6c61aa4e0faa4cebd99b7ea716abc82cebf45aa3f6526605e14719a06</hash>
+         <hash>c43b3970d47ddc7ec4790737d3b8008836bb0cf72babfde519924784a11da479</hash>
       </entry>
       <entry>
          <file>..\src\config\default\gfx\legato\generated\screen\le_gen_screen_Splash.h</file>

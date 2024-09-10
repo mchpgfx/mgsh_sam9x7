@@ -225,6 +225,15 @@ extern leImage speed_front;
 
 /*********************************
  * Legato Image Asset
+ * Name:   mchp_logo
+ * Size:   293x40 pixels
+ * Type:   RGB Data
+ * Format: RGBA_8888
+ ***********************************/
+extern leImage mchp_logo;
+
+/*********************************
+ * Legato Image Asset
  * Name:   logo_horizontal_small
  * Size:   117x17 pixels
  * Type:   RGB Data
@@ -234,21 +243,12 @@ extern leImage logo_horizontal_small;
 
 /*********************************
  * Legato Image Asset
- * Name:   Image0
- * Size:   293x40 pixels
+ * Name:   MGS_85_White
+ * Size:   316x85 pixels
  * Type:   RGB Data
  * Format: RGBA_8888
  ***********************************/
-extern leImage Image0;
-
-/*********************************
- * Legato Image Asset
- * Name:   MGSLogo
- * Size:   348x80 pixels
- * Type:   RGB Data
- * Format: RGBA_8888
- ***********************************/
-extern leImage MGSLogo;
+extern leImage MGS_85_White;
 
 /*****************************************************************************
  * Legato Graphics Font Assets

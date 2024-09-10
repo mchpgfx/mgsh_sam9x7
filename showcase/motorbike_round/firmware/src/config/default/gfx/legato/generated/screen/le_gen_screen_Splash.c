@@ -43,9 +43,9 @@ leResult screenShow_Splash(void)
     Splash_MicrochipLogo = leImageWidget_New();
     Splash_MicrochipLogo->fn->setPosition(Splash_MicrochipLogo, 203, 330);
     Splash_MicrochipLogo->fn->setSize(Splash_MicrochipLogo, 307, 50);
-    Splash_MicrochipLogo->fn->setBackgroundType(Splash_MicrochipLogo, LE_WIDGET_BACKGROUND_NONE);
+    Splash_MicrochipLogo->fn->setScheme(Splash_MicrochipLogo, &BackScheme);
     Splash_MicrochipLogo->fn->setBorderType(Splash_MicrochipLogo, LE_WIDGET_BORDER_NONE);
-    Splash_MicrochipLogo->fn->setImage(Splash_MicrochipLogo, (leImage*)&Image0);
+    Splash_MicrochipLogo->fn->setImage(Splash_MicrochipLogo, (leImage*)&mchp_logo);
     root0->fn->addChild(root0, (leWidget*)Splash_MicrochipLogo);
 
     Splash_MGSLogo = leImageWidget_New();
@@ -55,7 +55,7 @@ leResult screenShow_Splash(void)
     Splash_MGSLogo->fn->setBorderType(Splash_MGSLogo, LE_WIDGET_BORDER_NONE);
     Splash_MGSLogo->fn->setHAlignment(Splash_MGSLogo, LE_HALIGN_LEFT);
     Splash_MGSLogo->fn->setVAlignment(Splash_MGSLogo, LE_VALIGN_TOP);
-    Splash_MGSLogo->fn->setImage(Splash_MGSLogo, (leImage*)&MGSLogo);
+    Splash_MGSLogo->fn->setImage(Splash_MGSLogo, (leImage*)&MGS_85_White);
     root0->fn->addChild(root0, (leWidget*)Splash_MGSLogo);
 
     Splash_AnimLine = leLineWidget_New();

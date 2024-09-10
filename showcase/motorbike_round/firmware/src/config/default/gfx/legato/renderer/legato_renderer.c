@@ -128,7 +128,9 @@ leRenderState _rendererState;
 #define MAX_RECTARRAYS_SZ    8
 
 #ifndef LE_NO_CACHE_ATTR
-#define LE_NO_CACHE_ATTR
+/* CUSTOM CODE - DO NOT MODIFY OR REMOVE*/
+#define LE_NO_CACHE_ATTR __attribute__ ((section(".region_nocache")))
+/* END OF CUSTOM CODE */
 #endif
 
 

@@ -2,7 +2,7 @@
 
 manifest_file_version: 1.0.0
 project: sam9x75cu_mbr
-creation_date: 2024-08-26T10:13:28.318-07:00[America/Phoenix]
+creation_date: 2024-09-10T13:49:03.276-07:00[America/Phoenix]
 operating_system: Windows 10
 mcc_mode: IDE
 mcc_mode_version: v6.20
@@ -19,5 +19,5 @@ device_library: {library_class: com.microchip.mcc.harmony.Harmony3Library, name:
 packs: {name: SAM9X7_DFP, version: 1.4.151}
 modules:
 - {name: core, type: HARMONY, version: v3.13.5}
-- {name: csp, type: HARMONY, version: v3.19.4}
+- {name: csp, type: HARMONY, version: v3.19.5}
 - {name: gfx, type: HARMONY, version: v3.15.1}

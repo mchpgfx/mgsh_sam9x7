@@ -279,7 +279,7 @@ leResult screenShow_Screen0(void)
     Screen0_MicrochipLogo_0->fn->setVisible(Screen0_MicrochipLogo_0, LE_FALSE);
     Screen0_MicrochipLogo_0->fn->setBackgroundType(Screen0_MicrochipLogo_0, LE_WIDGET_BACKGROUND_NONE);
     Screen0_MicrochipLogo_0->fn->setBorderType(Screen0_MicrochipLogo_0, LE_WIDGET_BORDER_NONE);
-    Screen0_MicrochipLogo_0->fn->setImage(Screen0_MicrochipLogo_0, (leImage*)&Image0);
+    Screen0_MicrochipLogo_0->fn->setImage(Screen0_MicrochipLogo_0, (leImage*)&mchp_logo);
     root0->fn->addChild(root0, (leWidget*)Screen0_MicrochipLogo_0);
 
     leAddRootWidget(root0, 0);
