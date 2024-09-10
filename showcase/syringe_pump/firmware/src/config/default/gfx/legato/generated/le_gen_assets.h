@@ -63,24 +63,6 @@ extern const lePalette leGlobalPalette;
  *****************************************************************************/
 /*********************************
  * Legato Image Asset
- * Name:   mchp_logo_h
- * Size:   293x40 pixels
- * Type:   RGB Data
- * Format: RGBA_8888
- ***********************************/
-extern leImage mchp_logo_h;
-
-/*********************************
- * Legato Image Asset
- * Name:   logo_horizontal_small
- * Size:   117x17 pixels
- * Type:   RGB Data
- * Format: RGBA_8888
- ***********************************/
-extern leImage logo_horizontal_small;
-
-/*********************************
- * Legato Image Asset
  * Name:   MainMenuBtnPr
  * Size:   165x41 pixels
  * Type:   RGB Data
@@ -510,6 +492,24 @@ extern leImage popup_success_crop;
  * Format: RGBA_8888
  ***********************************/
 extern leImage popup_button_crop;
+
+/*********************************
+ * Legato Image Asset
+ * Name:   logo_horizontal_small
+ * Size:   117x17 pixels
+ * Type:   RGB Data
+ * Format: RGBA_8888
+ ***********************************/
+extern leImage logo_horizontal_small;
+
+/*********************************
+ * Legato Image Asset
+ * Name:   mchp_logo_h
+ * Size:   293x40 pixels
+ * Type:   RGB Data
+ * Format: RGBA_8888
+ ***********************************/
+extern leImage mchp_logo_h;
 
 /*****************************************************************************
  * Legato Graphics Font Assets

@@ -4,7 +4,7 @@
 
 
 project: syringe_pump
-creation_date: 2024-08-26T09:50:40.025-07:00[America/Phoenix]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2024-09-10T11:50:51.339-07:00[America/Phoenix]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 10
 mcc_mode: IDE            # [IDE|Standalone|Headless]
 mcc_version: v5.5.1
@@ -15,7 +15,7 @@ compiler: XC32 4.35
 
 modules:
     - {name: "core", version: "v3.13.5"}
-    - {name: "csp", version: "v3.19.4"}
+    - {name: "csp", version: "v3.19.5"}
     - {name: "gfx", version: "v3.15.1"}
 
 packs:

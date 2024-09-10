@@ -101,6 +101,27 @@ static void gfxcObjectsInitialize(void)
     unsigned int id;
 
     id = gfxcCreate();
+/* CUSTOM CODE - DO NOT MODIFY OR REMOVE */    
+#ifdef MGS_SIM    
+    gfxcSetPixelBuffer(id, 1280, 400, GFX_COLOR_MODE_RGBA_8888,
+                       (void *) canvasfb0);
+    id = gfxcCreate();
+    gfxcSetPixelBuffer(id, 1960, 400, GFX_COLOR_MODE_RGBA_8888,
+                       (void *) canvasfb1);
+    id = gfxcCreate();
+    gfxcSetPixelBuffer(id, 1280, 400, GFX_COLOR_MODE_RGBA_8888,
+                       (void *) canvasfb2);
+    id = gfxcCreate();
+    gfxcSetPixelBuffer(id, 1280, 400, GFX_COLOR_MODE_RGBA_8888,
+                       (void *) canvasfb3);
+    id = gfxcCreate();
+    gfxcSetPixelBuffer(id, 1280, 400, GFX_COLOR_MODE_RGBA_8888,
+                       (void *) canvasfb4);
+    id = gfxcCreate();
+    gfxcSetPixelBuffer(id, 1280, 400, GFX_COLOR_MODE_RGBA_8888,
+                       (void *) canvasfb5);    
+#else    
+/* END OF CUSTOM CODE */    
     gfxcSetPixelBuffer(id, 400, 1280, GFX_COLOR_MODE_RGBA_8888,
                        (void *) canvasfb0);
     id = gfxcCreate();
@@ -118,6 +139,7 @@ static void gfxcObjectsInitialize(void)
     id = gfxcCreate();
     gfxcSetPixelBuffer(id, 400, 1280, GFX_COLOR_MODE_RGBA_8888,
                        (void *) canvasfb5);
+#endif    
 }
 
 static void effectsTimerCallback ( uintptr_t context )
@@ -259,7 +281,7 @@ GFXC_RESULT _gfxcCopyBuffer(unsigned int srcID,
                        srcRect,
                        &canvas[destID].pixelBuffer,
                        destRect);
-}
+    }
 
 GFXC_RESULT _gfxcSetBaseCanvasID(uint32_t base)
 {

@@ -1116,7 +1116,6 @@ leResult screenShow_Screen0(void)
     Screen0_ImageWidget_1_0->fn->setSize(Screen0_ImageWidget_1_0, 117, 17);
     Screen0_ImageWidget_1_0->fn->setBackgroundType(Screen0_ImageWidget_1_0, LE_WIDGET_BACKGROUND_NONE);
     Screen0_ImageWidget_1_0->fn->setBorderType(Screen0_ImageWidget_1_0, LE_WIDGET_BORDER_NONE);
-    Screen0_ImageWidget_1_0->fn->setImage(Screen0_ImageWidget_1_0, (leImage*)&logo_horizontal_small);
     Screen0_DrugScreenPanel->fn->addChild(Screen0_DrugScreenPanel, (leWidget*)Screen0_ImageWidget_1_0);
 
     leAddRootWidget(root3, 3);
