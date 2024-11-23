@@ -85,6 +85,9 @@ typedef struct
 {
     /* The application's current state */
     APP_STATES state;
+    
+    uint32_t width, height;
+    uint32_t* buffer;
 
     /* TODO: Define any additional data used by the application. */
 

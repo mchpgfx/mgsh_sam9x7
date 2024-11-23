@@ -27,9 +27,15 @@
 // *****************************************************************************
 // *****************************************************************************
 
+#include <string.h>
+
 #include "app.h"
+
 #include "peripheral/pio/plib_pio.h"
 
+#include "qr-plugin/le_qr_plugin.h"
+
+#include "definitions.h"
 // *****************************************************************************
 // *****************************************************************************
 // Section: Global Data Definitions
@@ -59,8 +65,10 @@ APP_DATA appData;
 // *****************************************************************************
 // *****************************************************************************
 
-/* TODO:  Add any necessary callback functions.
-*/
+leBool event_Screen0_lePluginQR_OnDraw(leDrawSurfaceWidget* sfc, leRect* bounds)
+{
+    return 1;
+};
 
 // *****************************************************************************
 // *****************************************************************************
@@ -117,12 +125,19 @@ void APP_Tasks ( void )
         /* Application's initial state. */
         case APP_STATE_INIT:
         {
-            bool appInitialized = true;
+            gfxIOCTLArg_DisplaySize argDispSize;
+            gfxIOCTLArg_Value argVal;
 
-
-            if (appInitialized)
+             // Fetch display parameters
+            if ((DRV_XLCDC_IOCTL(GFX_IOCTL_GET_DISPLAY_SIZE, &argDispSize) == GFX_IOCTL_OK) &&
+                (DRV_XLCDC_IOCTL(GFX_IOCTL_GET_FRAMEBUFFER, &argVal) == GFX_IOCTL_OK) && 
+                 leRenderer_IsIdle())
             {
-
+                appData.width = argDispSize.width;
+                appData.height = argDispSize.height;
+                appData.buffer = argVal.value.v_pbuffer->pixels;
+                
+        
                 appData.state = APP_STATE_SERVICE_TASKS;
             }
             break;
@@ -138,7 +153,17 @@ void APP_Tasks ( void )
                 /* Enable AC69T88A Display Backlight */
                 AC69T88A_BACKLIGHT_EN_Set();
                 once = false;
-            }
+                
+                // Draw QR
+                createQR(appData.buffer,
+                 800, 480,
+                 45, 85,
+                 320, 320,
+                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                 FORMAT_RGBA8888,
+                 0xFFFFFFFF,
+                 0x000000FF);
+                }
             // END OF CUSTOM CODE
             break;
         }
