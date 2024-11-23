@@ -2,17 +2,14 @@
 
 // screen member widget declarations
 static leWidget* root0;
-static leWidget* root1;
-static leWidget* root2;
-static leWidget* root3;
 
 leWidget* Screen0_BaseFillPanel;
 leImageWidget* Screen0_ImageWidget0;
-leImageWidget* Screen0_ImageWidget1;
 leLabelWidget* Screen0_LabelWidget0;
 leLabelWidget* Screen0_LabelWidget1;
 leLabelWidget* Screen0_LabelWidget2;
 leButtonWidget* Screen0_ButtonWidget0;
+leDrawSurfaceWidget* Screen0_lePluginQR;
 
 static leBool initialized = LE_FALSE;
 static leBool showing = LE_FALSE;
@@ -46,32 +43,13 @@ leResult screenShow_Screen0(void)
     Screen0_BaseFillPanel->fn->setScheme(Screen0_BaseFillPanel, &LayerScheme);
     root0->fn->addChild(root0, (leWidget*)Screen0_BaseFillPanel);
 
-    leAddRootWidget(root0, 0);
-    leSetLayerColorMode(0, LE_COLOR_MODE_RGBA_8888);
-
-    // layer 1
-    root1 = leWidget_New();
-    root1->fn->setSize(root1, 800, 480);
-    root1->fn->setBackgroundType(root1, LE_WIDGET_BACKGROUND_NONE);
-    root1->fn->setMargins(root1, 0, 0, 0, 0);
-    root1->flags |= LE_WIDGET_IGNOREEVENTS;
-    root1->flags |= LE_WIDGET_IGNOREPICK;
-
     Screen0_ImageWidget0 = leImageWidget_New();
     Screen0_ImageWidget0->fn->setPosition(Screen0_ImageWidget0, 11, 11);
     Screen0_ImageWidget0->fn->setSize(Screen0_ImageWidget0, 152, 40);
     Screen0_ImageWidget0->fn->setBackgroundType(Screen0_ImageWidget0, LE_WIDGET_BACKGROUND_NONE);
     Screen0_ImageWidget0->fn->setBorderType(Screen0_ImageWidget0, LE_WIDGET_BORDER_NONE);
     Screen0_ImageWidget0->fn->setImage(Screen0_ImageWidget0, (leImage*)&mchpLogo_light);
-    root1->fn->addChild(root1, (leWidget*)Screen0_ImageWidget0);
-
-    Screen0_ImageWidget1 = leImageWidget_New();
-    Screen0_ImageWidget1->fn->setPosition(Screen0_ImageWidget1, 45, 85);
-    Screen0_ImageWidget1->fn->setSize(Screen0_ImageWidget1, 320, 300);
-    Screen0_ImageWidget1->fn->setBackgroundType(Screen0_ImageWidget1, LE_WIDGET_BACKGROUND_NONE);
-    Screen0_ImageWidget1->fn->setBorderType(Screen0_ImageWidget1, LE_WIDGET_BORDER_NONE);
-    Screen0_ImageWidget1->fn->setImage(Screen0_ImageWidget1, (leImage*)&MHGS_logo_WVGA);
-    root1->fn->addChild(root1, (leWidget*)Screen0_ImageWidget1);
+    root0->fn->addChild(root0, (leWidget*)Screen0_ImageWidget0);
 
     Screen0_LabelWidget0 = leLabelWidget_New();
     Screen0_LabelWidget0->fn->setPosition(Screen0_LabelWidget0, 390, 145);
@@ -79,7 +57,7 @@ leResult screenShow_Screen0(void)
     Screen0_LabelWidget0->fn->setScheme(Screen0_LabelWidget0, &RedScheme);
     Screen0_LabelWidget0->fn->setBackgroundType(Screen0_LabelWidget0, LE_WIDGET_BACKGROUND_NONE);
     Screen0_LabelWidget0->fn->setString(Screen0_LabelWidget0, (leString*)&string_Fast);
-    root1->fn->addChild(root1, (leWidget*)Screen0_LabelWidget0);
+    root0->fn->addChild(root0, (leWidget*)Screen0_LabelWidget0);
 
     Screen0_LabelWidget1 = leLabelWidget_New();
     Screen0_LabelWidget1->fn->setPosition(Screen0_LabelWidget1, 505, 145);
@@ -87,7 +65,7 @@ leResult screenShow_Screen0(void)
     Screen0_LabelWidget1->fn->setScheme(Screen0_LabelWidget1, &GreenScheme);
     Screen0_LabelWidget1->fn->setBackgroundType(Screen0_LabelWidget1, LE_WIDGET_BACKGROUND_NONE);
     Screen0_LabelWidget1->fn->setString(Screen0_LabelWidget1, (leString*)&string_Easy);
-    root1->fn->addChild(root1, (leWidget*)Screen0_LabelWidget1);
+    root0->fn->addChild(root0, (leWidget*)Screen0_LabelWidget1);
 
     Screen0_LabelWidget2 = leLabelWidget_New();
     Screen0_LabelWidget2->fn->setPosition(Screen0_LabelWidget2, 630, 145);
@@ -95,7 +73,7 @@ leResult screenShow_Screen0(void)
     Screen0_LabelWidget2->fn->setScheme(Screen0_LabelWidget2, &BlueScheme);
     Screen0_LabelWidget2->fn->setBackgroundType(Screen0_LabelWidget2, LE_WIDGET_BACKGROUND_NONE);
     Screen0_LabelWidget2->fn->setString(Screen0_LabelWidget2, (leString*)&string_Smart);
-    root1->fn->addChild(root1, (leWidget*)Screen0_LabelWidget2);
+    root0->fn->addChild(root0, (leWidget*)Screen0_LabelWidget2);
 
     Screen0_ButtonWidget0 = leButtonWidget_New();
     Screen0_ButtonWidget0->fn->setPosition(Screen0_ButtonWidget0, 455, 240);
@@ -104,32 +82,17 @@ leResult screenShow_Screen0(void)
     Screen0_ButtonWidget0->fn->setBorderType(Screen0_ButtonWidget0, LE_WIDGET_BORDER_NONE);
     Screen0_ButtonWidget0->fn->setPressedImage(Screen0_ButtonWidget0, (leImage*)&QuickstartDown_WVGA);
     Screen0_ButtonWidget0->fn->setReleasedImage(Screen0_ButtonWidget0, (leImage*)&QuickstartUp_WVGA);
-    root1->fn->addChild(root1, (leWidget*)Screen0_ButtonWidget0);
+    root0->fn->addChild(root0, (leWidget*)Screen0_ButtonWidget0);
 
-    leAddRootWidget(root1, 1);
-    leSetLayerColorMode(1, LE_COLOR_MODE_RGBA_8888);
+    Screen0_lePluginQR = leDrawSurfaceWidget_New();
+    Screen0_lePluginQR->fn->setPosition(Screen0_lePluginQR, 45, 85);
+    Screen0_lePluginQR->fn->setSize(Screen0_lePluginQR, 320, 320);
+    Screen0_lePluginQR->fn->setBackgroundType(Screen0_lePluginQR, LE_WIDGET_BACKGROUND_NONE);
+    Screen0_lePluginQR->fn->setDrawCallback(Screen0_lePluginQR, event_Screen0_lePluginQR_OnDraw);
+    root0->fn->addChild(root0, (leWidget*)Screen0_lePluginQR);
 
-    // layer 2
-    root2 = leWidget_New();
-    root2->fn->setSize(root2, 800, 480);
-    root2->fn->setBackgroundType(root2, LE_WIDGET_BACKGROUND_NONE);
-    root2->fn->setMargins(root2, 0, 0, 0, 0);
-    root2->flags |= LE_WIDGET_IGNOREEVENTS;
-    root2->flags |= LE_WIDGET_IGNOREPICK;
-
-    leAddRootWidget(root2, 2);
-    leSetLayerColorMode(2, LE_COLOR_MODE_RGBA_8888);
-
-    // layer 3
-    root3 = leWidget_New();
-    root3->fn->setSize(root3, 800, 480);
-    root3->fn->setBackgroundType(root3, LE_WIDGET_BACKGROUND_NONE);
-    root3->fn->setMargins(root3, 0, 0, 0, 0);
-    root3->flags |= LE_WIDGET_IGNOREEVENTS;
-    root3->flags |= LE_WIDGET_IGNOREPICK;
-
-    leAddRootWidget(root3, 3);
-    leSetLayerColorMode(3, LE_COLOR_MODE_RGBA_8888);
+    leAddRootWidget(root0, 0);
+    leSetLayerColorMode(0, LE_COLOR_MODE_RGBA_8888);
 
     showing = LE_TRUE;
 
@@ -139,9 +102,6 @@ leResult screenShow_Screen0(void)
 void screenUpdate_Screen0(void)
 {
     root0->fn->setSize(root0, root0->rect.width, root0->rect.height);
-    root1->fn->setSize(root1, root1->rect.width, root1->rect.height);
-    root2->fn->setSize(root2, root2->rect.width, root2->rect.height);
-    root3->fn->setSize(root3, root3->rect.width, root3->rect.height);
 }
 
 void screenHide_Screen0(void)
@@ -152,25 +112,12 @@ void screenHide_Screen0(void)
     root0 = NULL;
 
     Screen0_BaseFillPanel = NULL;
-
-    leRemoveRootWidget(root1, 1);
-    leWidget_Delete(root1);
-    root1 = NULL;
-
     Screen0_ImageWidget0 = NULL;
-    Screen0_ImageWidget1 = NULL;
     Screen0_LabelWidget0 = NULL;
     Screen0_LabelWidget1 = NULL;
     Screen0_LabelWidget2 = NULL;
     Screen0_ButtonWidget0 = NULL;
-
-    leRemoveRootWidget(root2, 2);
-    leWidget_Delete(root2);
-    root2 = NULL;
-
-    leRemoveRootWidget(root3, 3);
-    leWidget_Delete(root3);
-    root3 = NULL;
+    Screen0_lePluginQR = NULL;
 
 
     showing = LE_FALSE;
@@ -194,18 +141,6 @@ leWidget* screenGetRoot_Screen0(uint32_t lyrIdx)
         case 0:
         {
             return root0;
-        }
-        case 1:
-        {
-            return root1;
-        }
-        case 2:
-        {
-            return root2;
-        }
-        case 3:
-        {
-            return root3;
         }
         default:
         {

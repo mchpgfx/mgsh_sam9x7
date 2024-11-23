@@ -39,23 +39,30 @@
 *******************************************************************************/
 // DOM-IGNORE-END
 
+#include "toolchain_specifics.h"
 #include "gfx/driver/gfx_driver.h"
+#include "gfx/driver/processor/gfx2d/drv_gfx2d.h"
 #include "gfx/driver/controller/xlcdc/drv_gfx_xlcdc.h"
-#include "definitions.h"
+#include "gfx/driver/controller/xlcdc/plib/plib_xlcdc.h"
 
 /* Utility Macros */
+/* Minimum Check */
+#define MIN(a,b) ((a) < (b) ? (a) : (b))
+/* Alignment Check */
+#define IS_ALIGNED(ptr, align) (((uintptr_t)(ptr) & ((align) - 1)) == 0)
 /* Frame Buffer Macros */
 /* Cached, Cache Aligned */
 #define FB_CACHE_CA             CACHE_ALIGN
 /* Not Cached */
 #define FB_CACHE_NC             __attribute__ ((section(".region_nocache"), aligned (32)))
 /* Frame Buffer Pointer Type */
+#define FB_COL_MODE             XLCDC_RGB_COLOR_MODE_RGBA_8888
 #define FB_BPP_TYPE             uint32_t
 #define FB_PTR_TYPE             FB_BPP_TYPE *
 #define FB_TYPE_SZ              sizeof(FB_BPP_TYPE)
 
 /* Driver Settings */
-#define XLCDC_TOT_LAYERS        4
+#define XLCDC_TOT_LAYERS        1
 #define XLCDC_BUF_PER_LAYER     1
 #define XLCDC_HOR_RES           800
 #define XLCDC_VER_RES           480
@@ -74,9 +81,6 @@ typedef enum
 /* Generated Layer Order */
 static const char layerOrder[XLCDC_TOT_LAYERS] = {
     XLCDC_LAYER_BASE,
-    XLCDC_LAYER_OVR1,
-    XLCDC_LAYER_HEO,
-    XLCDC_LAYER_OVR2,
 };
 
 const char *DRIVER_NAME = "XLCDC";
@@ -169,7 +173,7 @@ gfxResult DRV_XLCDC_Initialize(void)
     /* Initialize Layer Attributes */
     for (uint32_t layerCount = 0; layerCount < XLCDC_TOT_LAYERS; layerCount++)
     {
-        drvLayer[layerCount].pixelformat = XLCDC_RGB_COLOR_MODE_RGBA_8888;
+        drvLayer[layerCount].pixelformat = FB_COL_MODE;
         drvLayer[layerCount].resx = XLCDC_HOR_RES;
         drvLayer[layerCount].resy = XLCDC_VER_RES;
         drvLayer[layerCount].startx = 0;

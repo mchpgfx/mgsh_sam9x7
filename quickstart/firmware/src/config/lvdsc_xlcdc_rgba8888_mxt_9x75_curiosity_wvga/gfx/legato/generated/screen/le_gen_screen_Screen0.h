@@ -15,11 +15,15 @@ extern "C" {
 // screen member widget declarations
 extern leWidget* Screen0_BaseFillPanel;
 extern leImageWidget* Screen0_ImageWidget0;
-extern leImageWidget* Screen0_ImageWidget1;
 extern leLabelWidget* Screen0_LabelWidget0;
 extern leLabelWidget* Screen0_LabelWidget1;
 extern leLabelWidget* Screen0_LabelWidget2;
 extern leButtonWidget* Screen0_ButtonWidget0;
+extern leDrawSurfaceWidget* Screen0_lePluginQR;
+
+// event handlers
+// !!THESE MUST BE IMPLEMENTED IN THE APPLICATION CODE!!
+leBool event_Screen0_lePluginQR_OnDraw(leDrawSurfaceWidget* sfc, leRect* bounds);
 
 // screen lifecycle functions
 // DO NOT CALL THESE DIRECTLY

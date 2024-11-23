@@ -97,7 +97,7 @@ extern "C" {
 #define LE_CIRCLE_WIDGET_ENABLED           0
 #define LE_CIRCULARGAUGE_WIDGET_ENABLED    0
 #define LE_CIRCULARSLIDER_WIDGET_ENABLED   0
-#define LE_DRAWSURFACE_WIDGET_ENABLED      0
+#define LE_DRAWSURFACE_WIDGET_ENABLED      1
 #define LE_GRADIENT_WIDGET_ENABLED         0
 #define LE_GROUPBOX_WIDGET_ENABLED         0
 #define LE_IMAGE_WIDGET_ENABLED            1
@@ -148,7 +148,7 @@ extern "C" {
 // renderer configuration
 //#define LE_VSYNC_STALL
 
-#define LE_LAYER_COUNT                     4
+#define LE_LAYER_COUNT                     1
 
 #define LE_WIDGET_MAX_EVENT_FILTERS        2
 
