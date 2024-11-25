@@ -33,7 +33,7 @@
 
 #include "peripheral/pio/plib_pio.h"
 
-#include "qr-plugin/le_qr_plugin.h"
+#include "plugin/qrcode/legato_plugin_qrcode.h"
 
 #include "definitions.h"
 // *****************************************************************************
@@ -67,8 +67,32 @@ APP_DATA appData;
 
 leBool event_Screen0_lePluginQR_OnDraw(leDrawSurfaceWidget* sfc, leRect* bounds)
 {
-    return 1;
-};
+    char qrText[MAX_QR_TEXT_LENGTH];
+    
+    generateVCardQRText("Mohit", "Mohan", 
+                        "Microchip", "Senior Engineer 1",
+                        "+919047558793", 
+                        "mohit.mohan@microchip.com",
+                        "Chennai", 
+                        "http://mohitmohan.com",
+                        qrText, sizeof(qrText));
+    
+//    generateEmailQRText("example@domain.com", qrText, sizeof(qrText));
+    
+//    generateEmailDetailedQRText("example@domain.com", "Meeting Tomorrow", 
+//                                "Let's meet at 2 PM", qrText, sizeof(qrText));
+    
+//    generateSMSQRText("+1234567890", "Hello there!", qrText, sizeof(qrText));
+    
+//    generatePhoneQRText("+1234567890", qrText, sizeof(qrText));;
+    
+//    generateWiFiQRText("NetworkName", "Password123", "WPA", qrText, sizeof(qrText));
+    
+//    generateCalendarQRText("Meeting", 2024, 1, 25, 10, 0, 2024, 1, 25, 11, 0,
+//                           "Office", "Team Meeting", qrText, sizeof(qrText));
+    
+    return lePlugin_QRCode(sfc, bounds, qrText, LE_COLOR_WHITE, LE_COLOR_BLACK);
+}
 
 // *****************************************************************************
 // *****************************************************************************
@@ -153,18 +177,8 @@ void APP_Tasks ( void )
                 /* Enable AC69T88A Display Backlight */
                 AC69T88A_BACKLIGHT_EN_Set();
                 once = false;
-                
-                // Draw QR
-                createQR(appData.buffer,
-                 800, 480,
-                 45, 85,
-                 320, 320,
-                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                 FORMAT_RGBA8888,
-                 0xFFFFFFFF,
-                 0x000000FF);
-                }
             // END OF CUSTOM CODE
+            }
             break;
         }
 

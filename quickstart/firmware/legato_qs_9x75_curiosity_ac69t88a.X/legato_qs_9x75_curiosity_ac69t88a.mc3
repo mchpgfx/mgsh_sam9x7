@@ -50,6 +50,10 @@
          <string>class com.microchip.mcc.harmony.HarmonyModule</string>
       </entry>
       <entry>
+         <string>mgs_web_sim</string>
+         <string>class com.microchip.mcc.harmony.HarmonyModule</string>
+      </entry>
+      <entry>
          <string>plib_gfx2d</string>
          <string>class com.microchip.mcc.harmony.HarmonyModule</string>
       </entry>
@@ -2898,7 +2902,7 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="!@#harmonyUserData"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;UserData&gt;
   &lt;UserData dnOrder=&quot;0&quot;&gt;
-    &lt;GraphSettings canvasHeight=&quot;623&quot; canvasWidth=&quot;643&quot; dnOrder=&quot;0&quot;/&gt;
+    &lt;GraphSettings canvasHeight=&quot;623&quot; canvasWidth=&quot;863&quot; dnOrder=&quot;0&quot;/&gt;
     &lt;PowerProfiles dnOrder=&quot;1&quot;&gt;
       &lt;Profile dnOrder=&quot;0&quot; id=&quot;profile0&quot; name=&quot;Main&quot;/&gt;
     &lt;/PowerProfiles&gt;
@@ -2915,10 +2919,11 @@
         &lt;ElementPosition dnOrder=&quot;8&quot; id=&quot;gfx_maxtouch_controller&quot; x=&quot;1&quot; y=&quot;302&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;9&quot; id=&quot;le_gfx_driver_xlcdc&quot; x=&quot;312&quot; y=&quot;173&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;10&quot; id=&quot;le_gfx_gfx2d&quot; x=&quot;345&quot; y=&quot;339&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;11&quot; id=&quot;plib_gfx2d&quot; x=&quot;198&quot; y=&quot;322&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;12&quot; id=&quot;rtt&quot; x=&quot;0&quot; y=&quot;119&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;13&quot; id=&quot;sys_input&quot; x=&quot;426&quot; y=&quot;14&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;14&quot; id=&quot;sys_time&quot; x=&quot;137&quot; y=&quot;73&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;11&quot; id=&quot;mgs_web_sim&quot; x=&quot;660&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;12&quot; id=&quot;plib_gfx2d&quot; x=&quot;198&quot; y=&quot;322&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;13&quot; id=&quot;rtt&quot; x=&quot;0&quot; y=&quot;119&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;14&quot; id=&quot;sys_input&quot; x=&quot;426&quot; y=&quot;14&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;15&quot; id=&quot;sys_time&quot; x=&quot;137&quot; y=&quot;73&quot;/&gt;
       &lt;/ElementPositions&gt;
     &lt;/ComponentGraph&gt;
   &lt;/UserData&gt;
@@ -6087,6 +6092,289 @@
     &lt;Values dnOrder=&quot;0&quot;/&gt;
   &lt;/le_gfx_gfx2d&gt;
 &lt;/le_gfx_gfx2d&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="!@#harmonyAttachmentState"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot;/&gt;
+&lt;/mgs_web_sim&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="#&amp;__MCC_Group_Parrent_id"/>
+         <value>__ROOTVIEW</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="CALLBACK_API_NAME"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot; id=&quot;CALLBACK_API_NAME&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/mgs_web_sim&gt;
+&lt;/mgs_web_sim&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="COMPARE_SET_API_NAME"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot; id=&quot;COMPARE_SET_API_NAME&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/mgs_web_sim&gt;
+&lt;/mgs_web_sim&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="COUNTER_GET_API_NAME"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot; id=&quot;COUNTER_GET_API_NAME&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/mgs_web_sim&gt;
+&lt;/mgs_web_sim&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="CtrlCanvasMode"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot; id=&quot;CtrlCanvasMode&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/mgs_web_sim&gt;
+&lt;/mgs_web_sim&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="CtrlColorMode"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot; id=&quot;CtrlColorMode&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/mgs_web_sim&gt;
+&lt;/mgs_web_sim&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="DisplayType"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot; id=&quot;DisplayType&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/mgs_web_sim&gt;
+&lt;/mgs_web_sim&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="DriverInitName"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot; id=&quot;DriverInitName&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/mgs_web_sim&gt;
+&lt;/mgs_web_sim&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="FREQUENCY_GET_API_NAME"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot; id=&quot;FREQUENCY_GET_API_NAME&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/mgs_web_sim&gt;
+&lt;/mgs_web_sim&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="IRQ_ENUM_NAME"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot; id=&quot;IRQ_ENUM_NAME&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/mgs_web_sim&gt;
+&lt;/mgs_web_sim&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="TIMER_PERIOD_MAX"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot; id=&quot;TIMER_PERIOD_MAX&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/mgs_web_sim&gt;
+&lt;/mgs_web_sim&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="TIMER_START_API_NAME"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot; id=&quot;TIMER_START_API_NAME&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/mgs_web_sim&gt;
+&lt;/mgs_web_sim&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="TIMER_STOP_API_NAME"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot; id=&quot;TIMER_STOP_API_NAME&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/mgs_web_sim&gt;
+&lt;/mgs_web_sim&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="TIMER_WIDTH"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot; id=&quot;TIMER_WIDTH&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/mgs_web_sim&gt;
+&lt;/mgs_web_sim&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="TmrTickMode"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot; id=&quot;TmrTickMode&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/mgs_web_sim&gt;
+&lt;/mgs_web_sim&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="TmrTickRes"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot; id=&quot;TmrTickRes&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/mgs_web_sim&gt;
+&lt;/mgs_web_sim&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="TotalNumLayers"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot; id=&quot;TotalNumLayers&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/mgs_web_sim&gt;
+&lt;/mgs_web_sim&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="alwaysOnTop"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot; id=&quot;alwaysOnTop&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/mgs_web_sim&gt;
+&lt;/mgs_web_sim&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="consoleStartClosed"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot; id=&quot;consoleStartClosed&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/mgs_web_sim&gt;
+&lt;/mgs_web_sim&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="consoleTSEnabled"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot; id=&quot;consoleTSEnabled&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/mgs_web_sim&gt;
+&lt;/mgs_web_sim&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="fileGenToggle"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot; id=&quot;fileGenToggle&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/mgs_web_sim&gt;
+&lt;/mgs_web_sim&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="initialMemory"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot; id=&quot;initialMemory&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/mgs_web_sim&gt;
+&lt;/mgs_web_sim&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="isBezelEnabled"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot; id=&quot;isBezelEnabled&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/mgs_web_sim&gt;
+&lt;/mgs_web_sim&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="isConsoleEnabled"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot; id=&quot;isConsoleEnabled&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/mgs_web_sim&gt;
+&lt;/mgs_web_sim&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="isDispCircular"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot; id=&quot;isDispCircular&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/mgs_web_sim&gt;
+&lt;/mgs_web_sim&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="isRespEnabled"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot; id=&quot;isRespEnabled&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/mgs_web_sim&gt;
+&lt;/mgs_web_sim&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="optimizationLevel"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot; id=&quot;optimizationLevel&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/mgs_web_sim&gt;
+&lt;/mgs_web_sim&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="stackSize"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot; id=&quot;stackSize&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/mgs_web_sim&gt;
+&lt;/mgs_web_sim&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="valDispHorRes"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot; id=&quot;valDispHorRes&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/mgs_web_sim&gt;
+&lt;/mgs_web_sim&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="valDispVerRes"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot; id=&quot;valDispVerRes&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/mgs_web_sim&gt;
+&lt;/mgs_web_sim&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="mgs_web_sim" name="webPageTitle"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;mgs_web_sim&gt;
+  &lt;mgs_web_sim dnOrder=&quot;0&quot; id=&quot;webPageTitle&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/mgs_web_sim&gt;
+&lt;/mgs_web_sim&gt;
 </value>
       </entry>
       <entry>

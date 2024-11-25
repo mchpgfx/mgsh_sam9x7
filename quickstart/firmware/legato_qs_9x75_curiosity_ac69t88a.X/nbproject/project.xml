@@ -10,6 +10,9 @@
             <make-dep-projects/>
             <sourceRootList>
                 <sourceRootElem>../src/qr-plugin</sourceRootElem>
+                <sourceRootElem>../src/le_plugin_qrcode</sourceRootElem>
+                <sourceRootElem>../src/plugins</sourceRootElem>
+                <sourceRootElem>../src/plugin</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>

@@ -764,11 +764,15 @@
           <itemPath>../src/config/lvdsc_xlcdc_rgba8888_mxt_9x75_curiosity_wvga/fault_handlers.c</itemPath>
         </logicalFolder>
       </logicalFolder>
-      <logicalFolder name="qr-plugin" displayName="qr-plugin" projectFiles="true">
-        <itemPath>../src/qr-plugin/qrcodegen.c</itemPath>
-        <itemPath>../src/qr-plugin/qrcodegen.h</itemPath>
-        <itemPath>../src/qr-plugin/le_qr_plugin.h</itemPath>
-        <itemPath>../src/qr-plugin/le_qr_plugin.c</itemPath>
+      <logicalFolder name="plugin" displayName="plugin" projectFiles="true">
+        <logicalFolder name="qrcode" displayName="qrcode" projectFiles="true">
+          <logicalFolder name="lib" displayName="lib" projectFiles="true">
+            <itemPath>../src/plugin/qrcode/lib/qrcodegen.c</itemPath>
+            <itemPath>../src/plugin/qrcode/lib/qrcodegen.h</itemPath>
+          </logicalFolder>
+          <itemPath>../src/plugin/qrcode/legato_plugin_qrcode.c</itemPath>
+          <itemPath>../src/plugin/qrcode/legato_plugin_qrcode.h</itemPath>
+        </logicalFolder>
       </logicalFolder>
       <itemPath>../src/app.c</itemPath>
       <itemPath>../src/main.c</itemPath>
@@ -777,6 +781,9 @@
   </logicalFolder>
   <sourceRootList>
     <Elem>../src/qr-plugin</Elem>
+    <Elem>../src/le_plugin_qrcode</Elem>
+    <Elem>../src/plugins</Elem>
+    <Elem>../src/plugin</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
