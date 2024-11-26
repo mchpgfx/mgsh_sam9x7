@@ -1,41 +1,72 @@
+/*******************************************************************************
+  Legato Plug-in - QR Code
+
+  Company:
+    Microchip Technology Inc.
+
+  File Name:
+    legato_plugin_qrcode.c
+
+  Summary:
+    This file contains the implementation of the QR code plug-in for Legato.
+
+  Description:
+    Provides a way to encode and display plain text as a QR Code.
+    Also provides QR text generators for common uses cases,
+    use them to create QR codes for vCard, UPI payments and more.
+ *******************************************************************************/
+
+//DOM-IGNORE-BEGIN
+/*******************************************************************************
+* Copyright (C) 2024 Microchip Technology Inc. and its subsidiaries.
+*
+* Subject to your compliance with these terms, you may use Microchip software
+* and any derivatives exclusively with Microchip products. It is your
+* responsibility to comply with third party license terms applicable to your
+* use of third party software (including open source software) that may
+* accompany Microchip software.
+*
+* THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
+* EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
+* WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
+* PARTICULAR PURPOSE.
+*
+* IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
+* INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
+* WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
+* BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
+* FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
+* ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
+* THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
+*******************************************************************************/
+//DOM-IGNORE-END
+
 #include "legato_plugin_qrcode.h"
 
-// Encode URL Strings
-static void urlEncode(const char* src, char* dst, size_t dstSize) {
-    const char* hex = "0123456789ABCDEF";
-    size_t srcLen = strlen(src);
-    size_t i, j = 0;
-    
-    for(i = 0; i < srcLen && j < dstSize - 4; i++) {
-        unsigned char c = src[i];
-        if(isalnum(c) || c == '-' || c == '_' || c == '.' || c == '~') {
-            dst[j++] = c;
-        } else if(c == ' ') {
-            dst[j++] = '%';
-            dst[j++] = '2';
-            dst[j++] = '0';
-        } else {
-            dst[j++] = '%';
-            dst[j++] = hex[c >> 4];
-            dst[j++] = hex[c & 15];
-        }
-    }
-    dst[j] = '\0';
-}
-
 // Generate vCard QR
-const char* generateVCardQRText(const char* firstName, 
-                                const char* lastName,
-                                const char* organization,
-                                const char* title,
-                                const char* phone,
-                                const char* email,
-                                const char* address,
-                                const char* website,
-                                char* buffer,
-                                size_t bufferSize)
+qrResult generateVCardQRText(const char* firstName,
+                             const char* lastName,
+                             const char* organization,
+                             const char* title,
+                             const char* phone,
+                             const char* email,
+                             const char* address,
+                             const char* website,
+                             char* buffer,
+                             size_t bufferSize)
 {
-    snprintf(buffer, bufferSize,
+    qrResult result = QR_SUCCESS;
+
+    if (!buffer)
+    {
+        return QR_ERR_NULL_INPUT;
+    }
+    else if (bufferSize < 128)
+    {
+        return QR_ERR_BUFFER_TOO_SMALL;
+    }
+
+    size_t ret = snprintf(buffer, bufferSize,
              "BEGIN:VCARD\n"
              "VERSION:3.0\n"
              "N:%s;%s;;;\n"
@@ -55,72 +86,170 @@ const char* generateVCardQRText(const char* firstName,
              address,
              email,
              website);
-    return buffer;
+
+    if (ret >= bufferSize) {
+        return QR_ERR_BUFFER_TOO_SMALL;
+    }
+    else if (ret < 0) {
+        return QR_ERR_ENCODING_FAILURE;
+    }
+
+    return result;
 }
 
 // Generate Email QR (simple)
-const char* generateEmailQRText(const char* email, 
-                                char* buffer, 
-                                size_t bufferSize) 
+qrResult generateEmailQRText(const char* email,
+                             char* buffer,
+                             size_t bufferSize)
 {
-    snprintf(buffer, bufferSize, "mailto:%s", email);
-    return buffer;
+    qrResult result = QR_SUCCESS;
+
+    if (!buffer)
+    {
+        return QR_ERR_NULL_INPUT;
+    }
+    else if (bufferSize < 8)
+    {
+        return QR_ERR_BUFFER_TOO_SMALL;
+    }
+
+    size_t ret = snprintf(buffer, bufferSize,
+                          "mailto:%s",
+                          email);
+
+    if (ret >= bufferSize) {
+        return QR_ERR_BUFFER_TOO_SMALL;
+    }
+    else if (ret < 0) {
+        return QR_ERR_ENCODING_FAILURE;
+    }
+
+    return result;
 }
 
 // Generate Email QR (with subject and body)
-const char* generateEmailDetailedQRText(const char* email,
-                                        const char* subject,
-                                        const char* body,
-                                        char* buffer,
-                                        size_t bufferSize)
+qrResult generateEmailDetailedQRText(const char* email,
+                                     const char* subject,
+                                     const char* body,
+                                     char* buffer,
+                                     size_t bufferSize)
 {
-    char encodedSubject[MAX_QR_TEXT_LENGTH];
-    char encodedBody[MAX_QR_TEXT_LENGTH];
-    
-    urlEncode(subject, encodedSubject, sizeof(encodedSubject));
-    urlEncode(body, encodedBody, sizeof(encodedBody));
-    
-    snprintf(buffer, bufferSize,
-             "mailto:%s?subject=%s&body=%s",
-             email, encodedSubject, encodedBody);
-    return buffer;
+    qrResult result = QR_SUCCESS;
+
+    if (!buffer)
+    {
+        return QR_ERR_NULL_INPUT;
+    }
+    else if (bufferSize < 23)
+    {
+        return QR_ERR_BUFFER_TOO_SMALL;
+    }
+
+    size_t ret = snprintf(buffer, bufferSize,
+                          "mailto:%s?subject=%s&body=%s",
+                          email, subject, body);
+
+    if (ret >= bufferSize) {
+        return QR_ERR_BUFFER_TOO_SMALL;
+    }
+    else if (ret < 0) {
+        return QR_ERR_ENCODING_FAILURE;
+    }
+
+    return result;
 }
 
 // Generate SMS QR
-const char* generateSMSQRText(const char* phoneNumber,
-                              const char* message,
-                              char* buffer,
-                              size_t bufferSize) 
+qrResult generateSMSQRText(const char* phoneNumber,
+                           const char* message,
+                           char* buffer,
+                           size_t bufferSize)
 {
-    char encodedMessage[MAX_QR_TEXT_LENGTH];
-    urlEncode(message, encodedMessage, sizeof(encodedMessage));
-    
-    snprintf(buffer, bufferSize,
-             "sms:%s?body=%s",
-             phoneNumber, encodedMessage);
-    return buffer;
+    qrResult result = QR_SUCCESS;
+
+    if (!buffer)
+    {
+        return QR_ERR_NULL_INPUT;
+    }
+    else if (bufferSize < 11)
+    {
+        return QR_ERR_BUFFER_TOO_SMALL;
+    }
+
+    size_t ret = snprintf(buffer, bufferSize,
+                          "sms:%s?body=%s",
+                          phoneNumber, message);
+
+    if (ret >= bufferSize) {
+        return QR_ERR_BUFFER_TOO_SMALL;
+    }
+    else if (ret < 0) {
+        return QR_ERR_ENCODING_FAILURE;
+    }
+
+    return result;
 }
 
 // Generate Phone Number QR
-const char* generatePhoneQRText(const char* phoneNumber,
-                                char* buffer,
-                                size_t bufferSize)
+qrResult generatePhoneQRText(const char* phoneNumber,
+                            char* buffer,
+                            size_t bufferSize)
 {
-    snprintf(buffer, bufferSize, "tel:%s", phoneNumber);
-    return buffer;
+    qrResult result = QR_SUCCESS;
+
+    if (!buffer)
+    {
+        return QR_ERR_NULL_INPUT;
+    }
+    else if (bufferSize < 5)
+    {
+        return QR_ERR_BUFFER_TOO_SMALL;
+    }
+
+    size_t ret = snprintf(buffer, bufferSize,
+                          "tel:%s",
+                          phoneNumber);
+
+    if (ret >= bufferSize) {
+        return QR_ERR_BUFFER_TOO_SMALL;
+    }
+    else if (ret < 0) {
+        return QR_ERR_ENCODING_FAILURE;
+    }
+
+    return result;
 }
 
 // Generate WiFi Configuration QR
-const char* generateWiFiQRText(const char* ssid,
-                               const char* password,
-                               const char* securityType,
-                               char* buffer,
-                               size_t bufferSize) 
+qrResult generateWiFiQRText(const char* ssid,
+                            const char* password,
+                            const char* securityType,
+                            char* buffer,
+                            size_t bufferSize)
 {
-    snprintf(buffer, bufferSize,
-             "WIFI:S:%s;T:%s;P:%s;;",
-             ssid, securityType, password);
-    return buffer;
+    qrResult result = QR_SUCCESS;
+
+    if (!buffer)
+    {
+        return QR_ERR_NULL_INPUT;
+    }
+    else if (bufferSize < 14)
+    {
+        return QR_ERR_BUFFER_TOO_SMALL;
+    }
+
+    size_t ret = snprintf(buffer, bufferSize,
+                          "WIFI:S:%s;T:%s;P:%s;;",
+                          ssid, securityType, password);
+
+    if (ret >= bufferSize) {
+        return QR_ERR_BUFFER_TOO_SMALL;
+    }
+    else if (ret < 0) {
+        return QR_ERR_ENCODING_FAILURE;
+    }
+
+    return result;
 }
 
 // Helper function to format date-time for calendar
@@ -133,112 +262,167 @@ static void formatDateTime(char* buffer, size_t bufferSize,
 }
 
 // Generate Calendar Event QR
-const char* generateCalendarQRText(const char* title,
-                                   int startYear,
-                                   int startMonth,
-                                   int startDay,
-                                   int startHour,
-                                   int startMinute,
-                                   int endYear,
-                                   int endMonth,
-                                   int endDay,
-                                   int endHour,
-                                   int endMinute,
-                                   const char* location,
-                                   const char* description,
-                                   char* buffer,
-                                   size_t bufferSize)
+qrResult generateCalendarQRText(const char* title,
+                                int startYear,
+                                int startMonth,
+                                int startDay,
+                                int startHour,
+                                int startMinute,
+                                int endYear,
+                                int endMonth,
+                                int endDay,
+                                int endHour,
+                                int endMinute,
+                                const char* location,
+                                const char* description,
+                                char* buffer,
+                                size_t bufferSize)
 {
-    char startTime[32];
-    char endTime[32];
-    
+    qrResult result = QR_SUCCESS;
+
+    if (!buffer)
+    {
+        return QR_ERR_NULL_INPUT;
+    }
+    else if (bufferSize < 117)
+    {
+        return QR_ERR_BUFFER_TOO_SMALL;
+    }
+
+    char startTime[21];
+    char endTime[21];
+
     formatDateTime(startTime, sizeof(startTime),
                   startYear, startMonth, startDay,
                   startHour, startMinute);
-    
+
     formatDateTime(endTime, sizeof(endTime),
                   endYear, endMonth, endDay,
                   endHour, endMinute);
-    
-    snprintf(buffer, bufferSize,
-             "BEGIN:VEVENT\n"
-             "SUMMARY:%s\n"
-             "DTSTART:%s\n"
-             "DTEND:%s\n"
-             "LOCATION:%s\n"
-             "DESCRIPTION:%s\n"
-             "END:VEVENT",
-             title, startTime, endTime, location, description);
-    return buffer;
+
+    size_t ret = snprintf(buffer, bufferSize,
+                          "BEGIN:VEVENT\n"
+                          "SUMMARY:%s\n"
+                          "DTSTART:%s\n"
+                          "DTEND:%s\n"
+                          "LOCATION:%s\n"
+                          "DESCRIPTION:%s\n"
+                          "END:VEVENT",
+                          title, startTime, endTime, location, description);
+
+    if (ret >= bufferSize) {
+        return QR_ERR_BUFFER_TOO_SMALL;
+    }
+    else if (ret < 0) {
+        return QR_ERR_ENCODING_FAILURE;
+    }
+
+    return result;
 }
 
-leBool lePlugin_QRCode(leDrawSurfaceWidget* sfc, 
+// Generate UPI Payment QR
+qrResult generateUPIQRText(const char* payeeAddress,
+                           const char* payeeName,
+                           const char* amount,
+                           const char* currency,
+                           const char* transactionNote,
+                           char* buffer,
+                           size_t bufferSize)
+{
+    if (!buffer)
+    {
+        return QR_ERR_NULL_INPUT;
+    }
+    else if (bufferSize < 30)
+    {
+        return QR_ERR_BUFFER_TOO_SMALL;
+    }
+
+    size_t ret = snprintf(buffer, bufferSize,
+                          "upi://pay?pa=%s&pn=%s&am=%s&cu=%s&tn=%s",
+                          payeeAddress,
+                          payeeName,
+                          amount,
+                          currency,
+                          transactionNote);
+
+    if (ret >= bufferSize) {
+        return QR_ERR_BUFFER_TOO_SMALL;
+    }
+    else if (ret < 0) {
+        return QR_ERR_ENCODING_FAILURE;
+    }
+
+    return QR_SUCCESS;
+}
+
+leBool lePlugin_QRCode(leDrawSurfaceWidget* sfc,
                        leRect* bounds,
                        const char* text,
                        leColorName colorBackground,
                        leColorName colorQR)
 {
     if (!sfc || !bounds || !text) return LE_FALSE;
-    
+
     leColorMode curMode = leRenderer_CurrentColorMode();
     leColor bgColor =  leColorValue(curMode, colorBackground);
     leColor moduleColor = leColorValue(curMode, colorQR);
-    
+
     // Get widget position
     int originX = sfc->fn->getX(sfc);
     int originY = sfc->fn->getY(sfc);
-    
+
     // Make container square using smallest dimension
     int squareSize = (bounds->width < bounds->height) ? bounds->width : bounds->height;
-    
+
     // QR code generation buffers
     uint8_t qrcode[qrcodegen_BUFFER_LEN_MAX];
     uint8_t tempBuffer[qrcodegen_BUFFER_LEN_MAX];
-    
+
     // Generate QR code
     bool success = qrcodegen_encodeText(text, tempBuffer, qrcode, qrcodegen_Ecc_LOW,
-        qrcodegen_VERSION_MIN, qrcodegen_VERSION_MAX, 
+        qrcodegen_VERSION_MIN, qrcodegen_VERSION_MAX,
         qrcodegen_Mask_AUTO, true);
-    
+
     if (!success) return LE_FALSE;
-    
+
     // Get QR base size
     int qrSize = qrcodegen_getSize(qrcode);
-    
+
     // Calculate scale factor to fit in square
     int qrScale = squareSize / qrSize;
     if (qrScale < 1) qrScale = 1;
-    
+
     // Calculate actual QR size after scaling
     int actualQrSize = qrSize * qrScale;
-    
+
     // Calculate centering offsets within the square container
     int offsetX = (squareSize - actualQrSize) / 2;
     int offsetY = (squareSize - actualQrSize) / 2;
-    
+
     // Fill background
-    if (leRenderer_FillArea(originX, 
+    if (leRenderer_FillArea(originX,
                        originY,
-                       squareSize, 
+                       squareSize,
                        squareSize,
                        bgColor,
                        255) == LE_FAILURE)
         return LE_FALSE;
-    
+
     // Draw QR code centered in the container
-    for (int y = 0; y < qrSize; y++) 
+    for (int y = 0; y < qrSize; y++)
     {
-        for (int x = 0; x < qrSize; x++) 
+        for (int x = 0; x < qrSize; x++)
         {
             bool module = qrcodegen_getModule(qrcode, x, y);
-            
-            if (module) 
-            {  
+
+            if (module)
+            {
                 // Only draw QR modules (not background)
                 // Scale up each QR module
                 int fbX = originX + offsetX + (x * qrScale);
                 int fbY = originY + offsetY + (y * qrScale);
-                
+
                 if (leRenderer_FillArea(fbX,
                                   fbY,
                                   qrScale,
@@ -249,6 +433,6 @@ leBool lePlugin_QRCode(leDrawSurfaceWidget* sfc,
             }
         }
     }
-    
+
     return LE_TRUE;
 }

@@ -65,33 +65,78 @@ APP_DATA appData;
 // *****************************************************************************
 // *****************************************************************************
 
+char qrText[1024] = {0};
+
 leBool event_Screen0_lePluginQR_OnDraw(leDrawSurfaceWidget* sfc, leRect* bounds)
-{
-    char qrText[MAX_QR_TEXT_LENGTH];
+{   
+    qrResult result; 
     
-    generateVCardQRText("Mohit", "Mohan", 
-                        "Microchip", "Senior Engineer 1",
-                        "+919047558793", 
-                        "mohit.mohan@microchip.com",
-                        "Chennai", 
-                        "http://mohitmohan.com",
-                        qrText, sizeof(qrText));
+    result = generateVCardQRText("John", "Doe", 
+                        "Company", "Title",
+                        "+1234567890", 
+                        "john.doe@domain.com",
+                        "Earth",
+                        "https://www.w3.org/",
+                        qrText, 
+                        sizeof(qrText));
     
-//    generateEmailQRText("example@domain.com", qrText, sizeof(qrText));
+    result = generateEmailQRText("example@domain.com", qrText, sizeof(qrText));
     
-//    generateEmailDetailedQRText("example@domain.com", "Meeting Tomorrow", 
-//                                "Let's meet at 2 PM", qrText, sizeof(qrText));
+    result = generateEmailDetailedQRText("example@domain.com", 
+                                         "Meeting Tomorrow", 
+                                         "Let's meet at 2 PM", 
+                                         qrText, 
+                                         sizeof(qrText));
     
-//    generateSMSQRText("+1234567890", "Hello there!", qrText, sizeof(qrText));
+    result = generateSMSQRText("+1234567890", 
+                               "Hello there!", 
+                               qrText, 
+                               sizeof(qrText));
     
-//    generatePhoneQRText("+1234567890", qrText, sizeof(qrText));;
+    result = generatePhoneQRText("+1234567890", qrText, sizeof(qrText));;
     
-//    generateWiFiQRText("NetworkName", "Password123", "WPA", qrText, sizeof(qrText));
+    result = generateWiFiQRText("NetworkName", 
+                                "Password123", 
+                                "WPA", 
+                                qrText, 
+                                sizeof(qrText));
     
-//    generateCalendarQRText("Meeting", 2024, 1, 25, 10, 0, 2024, 1, 25, 11, 0,
-//                           "Office", "Team Meeting", qrText, sizeof(qrText));
+    result = generateCalendarQRText("Meeting", 
+                                    2024, 
+                                    1, 
+                                    25, 
+                                    10, 
+                                    0, 
+                                    2024, 
+                                    1, 
+                                    25, 
+                                    11, 
+                                    0,
+                                    "Office", 
+                                    "Team Meeting", 
+                                    qrText, 
+                                    sizeof(qrText));
     
-    return lePlugin_QRCode(sfc, bounds, qrText, LE_COLOR_WHITE, LE_COLOR_BLACK);
+    result = generateUPIQRText("username@bankid",
+                      "User",
+                      "1.00",
+                      "INR",
+                      "UPI Test",
+                      qrText,
+                      sizeof(qrText));
+    
+    if (result != QR_SUCCESS)
+    {
+        return LE_FALSE;
+    }
+    else
+    {
+        return lePlugin_QRCode(sfc, 
+                               bounds, 
+                               qrText, 
+                               LE_COLOR_WHITE, 
+                               LE_COLOR_BLACK);
+    }
 }
 
 // *****************************************************************************
