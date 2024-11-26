@@ -66,26 +66,26 @@ qrResult generateVCardQRText(const char* firstName,
         return QR_ERR_BUFFER_TOO_SMALL;
     }
 
-    size_t ret = snprintf(buffer, bufferSize,
-             "BEGIN:VCARD\n"
-             "VERSION:3.0\n"
-             "N:%s;%s;;;\n"
-             "FN:%s %s\n"
-             "ORG:%s\n"
-             "TITLE:%s\n"
-             "TEL;TYPE=WORK,VOICE:%s\n"
-             "ADR;TYPE=WORK:;;%s\n"
-             "EMAIL:%s\n"
-             "URL:%s\n"
-             "END:VCARD",
-             lastName, firstName,
-             firstName, lastName,
-             organization,
-             title,
-             phone,
-             address,
-             email,
-             website);
+    int ret = snprintf(buffer, bufferSize,
+                       "BEGIN:VCARD\n"
+                       "VERSION:3.0\n"
+                       "N:%s;%s;;;\n"
+                       "FN:%s %s\n"
+                       "ORG:%s\n"
+                       "TITLE:%s\n"
+                       "TEL;TYPE=WORK,VOICE:%s\n"
+                       "ADR;TYPE=WORK:;;%s\n"
+                       "EMAIL:%s\n"
+                       "URL:%s\n"
+                       "END:VCARD",
+                       lastName, firstName,
+                       firstName, lastName,
+                       organization,
+                       title,
+                       phone,
+                       address,
+                       email,
+                       website);
 
     if (ret >= bufferSize) {
         return QR_ERR_BUFFER_TOO_SMALL;
@@ -113,9 +113,9 @@ qrResult generateEmailQRText(const char* email,
         return QR_ERR_BUFFER_TOO_SMALL;
     }
 
-    size_t ret = snprintf(buffer, bufferSize,
-                          "mailto:%s",
-                          email);
+    int ret = snprintf(buffer, bufferSize,
+                       "mailto:%s",
+                       email);
 
     if (ret >= bufferSize) {
         return QR_ERR_BUFFER_TOO_SMALL;
@@ -145,9 +145,9 @@ qrResult generateEmailDetailedQRText(const char* email,
         return QR_ERR_BUFFER_TOO_SMALL;
     }
 
-    size_t ret = snprintf(buffer, bufferSize,
-                          "mailto:%s?subject=%s&body=%s",
-                          email, subject, body);
+    int ret = snprintf(buffer, bufferSize,
+                       "mailto:%s?subject=%s&body=%s",
+                       email, subject, body);
 
     if (ret >= bufferSize) {
         return QR_ERR_BUFFER_TOO_SMALL;
@@ -176,9 +176,9 @@ qrResult generateSMSQRText(const char* phoneNumber,
         return QR_ERR_BUFFER_TOO_SMALL;
     }
 
-    size_t ret = snprintf(buffer, bufferSize,
-                          "sms:%s?body=%s",
-                          phoneNumber, message);
+    int ret = snprintf(buffer, bufferSize,
+                       "sms:%s?body=%s",
+                       phoneNumber, message);
 
     if (ret >= bufferSize) {
         return QR_ERR_BUFFER_TOO_SMALL;
@@ -206,9 +206,9 @@ qrResult generatePhoneQRText(const char* phoneNumber,
         return QR_ERR_BUFFER_TOO_SMALL;
     }
 
-    size_t ret = snprintf(buffer, bufferSize,
-                          "tel:%s",
-                          phoneNumber);
+    int ret = snprintf(buffer, bufferSize,
+                       "tel:%s",
+                       phoneNumber);
 
     if (ret >= bufferSize) {
         return QR_ERR_BUFFER_TOO_SMALL;
@@ -238,9 +238,9 @@ qrResult generateWiFiQRText(const char* ssid,
         return QR_ERR_BUFFER_TOO_SMALL;
     }
 
-    size_t ret = snprintf(buffer, bufferSize,
-                          "WIFI:S:%s;T:%s;P:%s;;",
-                          ssid, securityType, password);
+    int ret = snprintf(buffer, bufferSize,
+                       "WIFI:S:%s;T:%s;P:%s;;",
+                       ssid, securityType, password);
 
     if (ret >= bufferSize) {
         return QR_ERR_BUFFER_TOO_SMALL;
@@ -293,22 +293,26 @@ qrResult generateCalendarQRText(const char* title,
     char endTime[21];
 
     formatDateTime(startTime, sizeof(startTime),
-                  startYear, startMonth, startDay,
-                  startHour, startMinute);
+                   startYear, startMonth, startDay,
+                   startHour, startMinute);
 
     formatDateTime(endTime, sizeof(endTime),
-                  endYear, endMonth, endDay,
-                  endHour, endMinute);
+                   endYear, endMonth, endDay,
+                   endHour, endMinute);
 
-    size_t ret = snprintf(buffer, bufferSize,
-                          "BEGIN:VEVENT\n"
-                          "SUMMARY:%s\n"
-                          "DTSTART:%s\n"
-                          "DTEND:%s\n"
-                          "LOCATION:%s\n"
-                          "DESCRIPTION:%s\n"
-                          "END:VEVENT",
-                          title, startTime, endTime, location, description);
+    int ret = snprintf(buffer, bufferSize,
+                       "BEGIN:VEVENT\n"
+                       "SUMMARY:%s\n"
+                       "DTSTART:%s\n"
+                       "DTEND:%s\n"
+                       "LOCATION:%s\n"
+                       "DESCRIPTION:%s\n"
+                       "END:VEVENT",
+                       title,
+                       startTime,
+                       endTime,
+                       location,
+                       description);
 
     if (ret >= bufferSize) {
         return QR_ERR_BUFFER_TOO_SMALL;
@@ -338,13 +342,13 @@ qrResult generateUPIQRText(const char* payeeAddress,
         return QR_ERR_BUFFER_TOO_SMALL;
     }
 
-    size_t ret = snprintf(buffer, bufferSize,
-                          "upi://pay?pa=%s&pn=%s&am=%s&cu=%s&tn=%s",
-                          payeeAddress,
-                          payeeName,
-                          amount,
-                          currency,
-                          transactionNote);
+    int ret = snprintf(buffer, bufferSize,
+                       "upi://pay?pa=%s&pn=%s&am=%s&cu=%s&tn=%s",
+                       payeeAddress,
+                       payeeName,
+                       amount,
+                       currency,
+                       transactionNote);
 
     if (ret >= bufferSize) {
         return QR_ERR_BUFFER_TOO_SMALL;
