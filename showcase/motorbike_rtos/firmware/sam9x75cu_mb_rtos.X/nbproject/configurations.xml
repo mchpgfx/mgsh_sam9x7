@@ -106,6 +106,19 @@
                 <itemPath>../src/config/default/gfx/legato/string/legato_string_renderer.h</itemPath>
                 <itemPath>../src/config/default/gfx/legato/string/legato_dynamicstring.h</itemPath>
               </logicalFolder>
+              <logicalFolder name="vector" displayName="vector" projectFiles="true">
+                <itemPath>../src/config/default/gfx/legato/vector/legato_aabb.h</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_linef.h</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_obb.h</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_plane.h</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_point.h</itemPath>
+                <itemPath>../src/config/default/gfx/legato/core/legato_real_i16.h</itemPath>
+                <itemPath>../src/config/default/gfx/legato/core/legato_real_u8.h</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_rectf.h</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_vector.h</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_vector2.h</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_vector_kernel.h</itemPath>
+              </logicalFolder>
               <logicalFolder name="widget" displayName="widget" projectFiles="true">
                 <logicalFolder name="arc" displayName="arc" projectFiles="true">
                   <itemPath>../src/config/default/gfx/legato/widget/arc/legato_widget_arc.h</itemPath>
@@ -308,6 +321,7 @@
             <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/list.h</itemPath>
             <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/croutine.h</itemPath>
             <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/FreeRTOS.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/mpu_syscall_numbers.h</itemPath>
           </logicalFolder>
           <logicalFolder name="portable" displayName="portable" projectFiles="true">
             <logicalFolder name="XC32" displayName="XC32" projectFiles="true">
@@ -445,6 +459,8 @@
             <itemPath>../src/packs/SAM9X75D2G_DFP/instance/tc0.h</itemPath>
             <itemPath>../src/packs/SAM9X75D2G_DFP/instance/uhphs_ohci.h</itemPath>
             <itemPath>../src/packs/SAM9X75D2G_DFP/instance/uhphs.h</itemPath>
+            <itemPath>../src/packs/SAM9X75D2G_DFP/instance/lvdsphy.h</itemPath>
+            <itemPath>../src/packs/SAM9X75D2G_DFP/instance/mipiphy.h</itemPath>
           </logicalFolder>
           <logicalFolder name="pio" displayName="pio" projectFiles="true">
             <itemPath>../src/packs/SAM9X75D2G_DFP/pio/sam9x75d2g.h</itemPath>
@@ -457,8 +473,37 @@
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="true">
+      <logicalFolder name="sam9x75cu_mb_rtos_default"
+                     displayName="sam9x75cu_mb_rtos_default"
+                     projectFiles="true">
+        <logicalFolder name="components" displayName="components" projectFiles="true">
+          <itemPath>sam9x75cu_mb_rtos_default/components/pit.yml</itemPath>
+          <itemPath>sam9x75cu_mb_rtos_default/components/drv_i2c_0.yml</itemPath>
+          <itemPath>sam9x75cu_mb_rtos_default/components/mgs_web_sim.yml</itemPath>
+          <itemPath>sam9x75cu_mb_rtos_default/components/drv_i2c.yml</itemPath>
+          <itemPath>sam9x75cu_mb_rtos_default/components/dfp.yml</itemPath>
+          <itemPath>sam9x75cu_mb_rtos_default/components/gfx_display_comp_ac69t88a.yml</itemPath>
+          <itemPath>sam9x75cu_mb_rtos_default/components/FreeRTOS.yml</itemPath>
+          <itemPath>sam9x75cu_mb_rtos_default/components/plib_gfx2d.yml</itemPath>
+          <itemPath>sam9x75cu_mb_rtos_default/components/gfx_maxtouch_controller.yml</itemPath>
+          <itemPath>sam9x75cu_mb_rtos_default/components/flexcom6.yml</itemPath>
+          <itemPath>sam9x75cu_mb_rtos_default/components/gfx_bridge_lvdsc_plib.yml</itemPath>
+          <itemPath>sam9x75cu_mb_rtos_default/components/le_gfx_gfx2d.yml</itemPath>
+          <itemPath>sam9x75cu_mb_rtos_default/components/sys_input.yml</itemPath>
+          <itemPath>sam9x75cu_mb_rtos_default/components/core.yml</itemPath>
+          <itemPath>sam9x75cu_mb_rtos_default/components/le_gfx_driver_xlcdc.yml</itemPath>
+          <itemPath>sam9x75cu_mb_rtos_default/components/HarmonyCore.yml</itemPath>
+          <itemPath>sam9x75cu_mb_rtos_default/components/rtt.yml</itemPath>
+          <itemPath>sam9x75cu_mb_rtos_default/components/sys_time.yml</itemPath>
+          <itemPath>sam9x75cu_mb_rtos_default/components/gfx_legato.yml</itemPath>
+        </logicalFolder>
+        <itemPath>sam9x75cu_mb_rtos_default/mcc-config.mc4</itemPath>
+      </logicalFolder>
       <itemPath>Makefile</itemPath>
-      <itemPath>legato_qs_9x75_curiosity_ac69t88a.mc3</itemPath>
+    </logicalFolder>
+    <logicalFolder name="LibraryFiles"
+                   displayName="LibraryFiles"
+                   projectFiles="true">
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -604,6 +649,28 @@
                 <itemPath>../src/config/default/gfx/legato/string/legato_dynamicstring.c</itemPath>
                 <itemPath>../src/config/default/gfx/legato/string/legato_string_renderer.c</itemPath>
                 <itemPath>../src/config/default/gfx/legato/string/legato_string_renderer_stream.c</itemPath>
+              </logicalFolder>
+              <logicalFolder name="vector" displayName="vector" projectFiles="true">
+                <itemPath>../src/config/default/gfx/legato/vector/legato_aa.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_aabb.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_linef.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_obb.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_plane.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_point.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/core/legato_real_i16.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/core/legato_real_u8.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_rectf.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_vector2.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_vector_arc_fill.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_vector_arc_stroke.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_vector_convexpoly_fill.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_vector_hline.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_vector_kernel.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_vector_line.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_vector_point.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_vector_rect_fill.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_vector_rect_stroke.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_vector_vline.c</itemPath>
               </logicalFolder>
               <logicalFolder name="widget" displayName="widget" projectFiles="true">
                 <logicalFolder name="arc" displayName="arc" projectFiles="true">
@@ -881,6 +948,7 @@
       <C32>
         <property key="additional-warnings" value="true"/>
         <property key="addresss-attribute-use" value="false"/>
+        <property key="appendMe" value="-marm"/>
         <property key="enable-app-io" value="false"/>
         <property key="enable-omit-frame-pointer" value="false"/>
         <property key="enable-symbols" value="true"/>
@@ -938,6 +1006,7 @@
         <property key="additional-options-use-response-files" value="false"/>
         <property key="additional-options-write-sla" value="false"/>
         <property key="allocate-dinit" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="code-dinit" value="false"/>
         <property key="ebase-addr" value=""/>
         <property key="enable-check-sections" value="false"/>
@@ -977,6 +1046,7 @@
       <C32CPP>
         <property key="additional-warnings" value="false"/>
         <property key="addresss-attribute-use" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="check-new" value="false"/>
         <property key="eh-specs" value="true"/>
         <property key="enable-app-io" value="false"/>

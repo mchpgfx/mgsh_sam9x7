@@ -223,8 +223,11 @@ void _DRV_MAXTOUCH_Tasks(  void *pvParameters  )
     }
 }
 
+
 /* Handle for the APP_Tasks. */
 TaskHandle_t xAPP_Tasks;
+
+
 
 static void lAPP_Tasks(  void *pvParameters  )
 {   
@@ -307,6 +310,7 @@ void SYS_Tasks ( void )
 
 
     /* Maintain the application's state machine. */
+    
         /* Create OS Thread for APP_Tasks. */
     (void) xTaskCreate((TaskFunction_t) lAPP_Tasks,
                 "APP_Tasks",
@@ -317,7 +321,6 @@ void SYS_Tasks ( void )
                 (TaskHandle_t*)&tasks[APP_TASK_ID]
 /* CUSTOM CODE END */
     );
-
 
 
 

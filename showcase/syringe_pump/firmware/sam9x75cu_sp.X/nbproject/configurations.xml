@@ -19,6 +19,7 @@
             <logicalFolder name="canvas" displayName="canvas" projectFiles="true">
               <itemPath>../src/config/default/gfx/canvas/gfx_canvas.h</itemPath>
               <itemPath>../src/config/default/gfx/canvas/gfx_canvas_api.h</itemPath>
+              <itemPath>../src/config/default/gfx/canvas/gfx_canvas_config.h</itemPath>
             </logicalFolder>
             <logicalFolder name="display" displayName="display" projectFiles="true">
               <itemPath>../src/config/default/gfx/display/ws_touch_display.h</itemPath>
@@ -108,6 +109,19 @@
                 <itemPath>../src/config/default/gfx/legato/string/legato_string_renderer.h</itemPath>
                 <itemPath>../src/config/default/gfx/legato/string/legato_stringutils.h</itemPath>
                 <itemPath>../src/config/default/gfx/legato/string/legato_dynamicstring.h</itemPath>
+              </logicalFolder>
+              <logicalFolder name="vector" displayName="vector" projectFiles="true">
+                <itemPath>../src/config/default/gfx/legato/vector/legato_aabb.h</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_linef.h</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_obb.h</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_plane.h</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_point.h</itemPath>
+                <itemPath>../src/config/default/gfx/legato/core/legato_real_i16.h</itemPath>
+                <itemPath>../src/config/default/gfx/legato/core/legato_real_u8.h</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_rectf.h</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_vector.h</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_vector2.h</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_vector_kernel.h</itemPath>
               </logicalFolder>
               <logicalFolder name="widget" displayName="widget" projectFiles="true">
                 <logicalFolder name="arc" displayName="arc" projectFiles="true">
@@ -417,6 +431,8 @@
             <itemPath>../src/packs/SAM9X75D2G_DFP/instance/dbgu.h</itemPath>
             <itemPath>../src/packs/SAM9X75D2G_DFP/instance/uhphs.h</itemPath>
             <itemPath>../src/packs/SAM9X75D2G_DFP/instance/uhphs_ohci.h</itemPath>
+            <itemPath>../src/packs/SAM9X75D2G_DFP/instance/lvdsphy.h</itemPath>
+            <itemPath>../src/packs/SAM9X75D2G_DFP/instance/mipiphy.h</itemPath>
           </logicalFolder>
           <logicalFolder name="pio" displayName="pio" projectFiles="true">
             <itemPath>../src/packs/SAM9X75D2G_DFP/pio/sam9x75d2g.h</itemPath>
@@ -431,8 +447,37 @@
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="true">
+      <logicalFolder name="sam9x75cu_sp_default"
+                     displayName="sam9x75cu_sp_default"
+                     projectFiles="true">
+        <logicalFolder name="components" displayName="components" projectFiles="true">
+          <itemPath>sam9x75cu_sp_default/components/gfx_display_comp_waveshare_7_9in_dsi.yml</itemPath>
+          <itemPath>sam9x75cu_sp_default/components/le_gfx_gfx2d.yml</itemPath>
+          <itemPath>sam9x75cu_sp_default/components/HarmonyCore.yml</itemPath>
+          <itemPath>sam9x75cu_sp_default/components/dfp.yml</itemPath>
+          <itemPath>sam9x75cu_sp_default/components/sys_input.yml</itemPath>
+          <itemPath>sam9x75cu_sp_default/components/drv_i2c_0.yml</itemPath>
+          <itemPath>sam9x75cu_sp_default/components/drv_i2c.yml</itemPath>
+          <itemPath>sam9x75cu_sp_default/components/flexcom6.yml</itemPath>
+          <itemPath>sam9x75cu_sp_default/components/gfx_canvas.yml</itemPath>
+          <itemPath>sam9x75cu_sp_default/components/gfx_bridge_dsi_plib.yml</itemPath>
+          <itemPath>sam9x75cu_sp_default/components/core.yml</itemPath>
+          <itemPath>sam9x75cu_sp_default/components/dbgu.yml</itemPath>
+          <itemPath>sam9x75cu_sp_default/components/plib_gfx2d.yml</itemPath>
+          <itemPath>sam9x75cu_sp_default/components/gfx_legato.yml</itemPath>
+          <itemPath>sam9x75cu_sp_default/components/mgs_web_sim.yml</itemPath>
+          <itemPath>sam9x75cu_sp_default/components/le_gfx_driver_xlcdc.yml</itemPath>
+          <itemPath>sam9x75cu_sp_default/components/stdio.yml</itemPath>
+          <itemPath>sam9x75cu_sp_default/components/rtt.yml</itemPath>
+          <itemPath>sam9x75cu_sp_default/components/sys_time.yml</itemPath>
+        </logicalFolder>
+        <itemPath>sam9x75cu_sp_default/mcc-config.mc4</itemPath>
+      </logicalFolder>
       <itemPath>Makefile</itemPath>
-      <itemPath>legato_qs_9x75_curiosity_ws_7_9inch.mc3</itemPath>
+    </logicalFolder>
+    <logicalFolder name="LibraryFiles"
+                   displayName="LibraryFiles"
+                   projectFiles="true">
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -457,6 +502,7 @@
             <logicalFolder name="canvas" displayName="canvas" projectFiles="true">
               <itemPath>../src/config/default/gfx/canvas/gfx_canvas.c</itemPath>
               <itemPath>../src/config/default/gfx/canvas/gfx_canvas_api.c</itemPath>
+              <itemPath>../src/config/default/gfx/canvas/gfx_canvas_config.c</itemPath>
             </logicalFolder>
             <logicalFolder name="display" displayName="display" projectFiles="true">
               <itemPath>../src/config/default/gfx/display/ws_touch_display.c</itemPath>
@@ -581,6 +627,28 @@
                 <itemPath>../src/config/default/gfx/legato/string/legato_string_renderer.c</itemPath>
                 <itemPath>../src/config/default/gfx/legato/string/legato_stringutils.c</itemPath>
                 <itemPath>../src/config/default/gfx/legato/string/legato_dynamicstring.c</itemPath>
+              </logicalFolder>
+              <logicalFolder name="vector" displayName="vector" projectFiles="true">
+                <itemPath>../src/config/default/gfx/legato/vector/legato_aa.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_aabb.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_linef.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_obb.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_plane.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_point.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/core/legato_real_i16.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/core/legato_real_u8.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_rectf.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_vector2.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_vector_arc_fill.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_vector_arc_stroke.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_vector_convexpoly_fill.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_vector_hline.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_vector_kernel.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_vector_line.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_vector_point.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_vector_rect_fill.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_vector_rect_stroke.c</itemPath>
+                <itemPath>../src/config/default/gfx/legato/vector/legato_vector_vline.c</itemPath>
               </logicalFolder>
               <logicalFolder name="widget" displayName="widget" projectFiles="true">
                 <logicalFolder name="arc" displayName="arc" projectFiles="true">

@@ -1,0 +1,303 @@
+configVersion: 1.0.0
+componentName: gfx_canvas
+coreVersion: 5.8.2
+device: SAM9X75D2G
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: gfx_canvas
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: gfx
+  type: package
+  version: v3.16.1
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments:
+    children:
+    - children:
+      - attributes:
+          id: gfx_canvas
+        children:
+        - children:
+          - attributes:
+              id: targetComponentID
+            children:
+            - type: Value
+              value: gfx_legato
+            type: String
+          - attributes:
+              id: targetAttachmentID
+            children:
+            - type: Value
+              value: gfx_driver
+            type: String
+          type: Attributes
+        type: DirectCapability
+      - attributes:
+          id: gfx_display_driver
+        children:
+        - children:
+          - attributes:
+              id: targetComponentID
+            children:
+            - type: Value
+              value: le_gfx_driver_xlcdc
+            type: String
+          - attributes:
+              id: targetAttachmentID
+            children:
+            - type: Value
+              value: le_gfx_xlcdc_cap
+            type: String
+          type: Attributes
+        type: DirectDependency
+      type: Attachments
+    type: gfx_canvas
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: gfx_canvas
+          x: '840'
+          y: '78'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    Canvas0FrameBufferAlloc:
+      attributes:
+        id: Canvas0FrameBufferAlloc
+      children:
+      - children:
+        - attributes:
+            value: Auto
+          type: User
+        type: Values
+      type: Combo
+    Canvas0Height:
+      attributes:
+        id: Canvas0Height
+      children:
+      - children:
+        - attributes:
+            value: '1280'
+          type: User
+        type: Values
+      type: Integer
+    Canvas0Width:
+      attributes:
+        id: Canvas0Width
+      children:
+      - children:
+        - attributes:
+            value: '400'
+          type: User
+        type: Values
+      type: Integer
+    Canvas1FrameBufferAlloc:
+      attributes:
+        id: Canvas1FrameBufferAlloc
+      children:
+      - children:
+        - attributes:
+            value: Auto
+          type: User
+        type: Values
+      type: Combo
+    Canvas1Height:
+      attributes:
+        id: Canvas1Height
+      children:
+      - children:
+        - attributes:
+            value: '1960'
+          type: User
+        type: Values
+      type: Integer
+    Canvas1Width:
+      attributes:
+        id: Canvas1Width
+      children:
+      - children:
+        - attributes:
+            value: '400'
+          type: User
+        type: Values
+      type: Integer
+    Canvas2FrameBufferAlloc:
+      attributes:
+        id: Canvas2FrameBufferAlloc
+      children:
+      - children:
+        - attributes:
+            value: Auto
+          type: User
+        type: Values
+      type: Combo
+    Canvas2Height:
+      attributes:
+        id: Canvas2Height
+      children:
+      - children:
+        - attributes:
+            value: '1280'
+          type: User
+        type: Values
+      type: Integer
+    Canvas2Width:
+      attributes:
+        id: Canvas2Width
+      children:
+      - children:
+        - attributes:
+            value: '400'
+          type: User
+        type: Values
+      type: Integer
+    Canvas3FrameBufferAlloc:
+      attributes:
+        id: Canvas3FrameBufferAlloc
+      children:
+      - children:
+        - attributes:
+            value: Auto
+          type: User
+        type: Values
+      type: Combo
+    Canvas3Height:
+      attributes:
+        id: Canvas3Height
+      children:
+      - children:
+        - attributes:
+            value: '1280'
+          type: User
+        type: Values
+      type: Integer
+    Canvas3Width:
+      attributes:
+        id: Canvas3Width
+      children:
+      - children:
+        - attributes:
+            value: '400'
+          type: User
+        type: Values
+      type: Integer
+    Canvas4FrameBufferAlloc:
+      attributes:
+        id: Canvas4FrameBufferAlloc
+      children:
+      - children:
+        - attributes:
+            value: Auto
+          type: User
+        type: Values
+      type: Combo
+    Canvas4Height:
+      attributes:
+        id: Canvas4Height
+      children:
+      - children:
+        - attributes:
+            value: '1280'
+          type: User
+        type: Values
+      type: Integer
+    Canvas4Width:
+      attributes:
+        id: Canvas4Width
+      children:
+      - children:
+        - attributes:
+            value: '400'
+          type: User
+        type: Values
+      type: Integer
+    Canvas5FrameBufferAlloc:
+      attributes:
+        id: Canvas5FrameBufferAlloc
+      children:
+      - children:
+        - attributes:
+            value: Auto
+          type: User
+        type: Values
+      type: Combo
+    Canvas5Height:
+      attributes:
+        id: Canvas5Height
+      children:
+      - children:
+        - attributes:
+            value: '1280'
+          type: User
+        type: Values
+      type: Integer
+    Canvas5Width:
+      attributes:
+        id: Canvas5Width
+      children:
+      - children:
+        - attributes:
+            value: '400'
+          type: User
+        type: Values
+      type: Integer
+    DefaultNumLayers:
+      attributes:
+        id: DefaultNumLayers
+      children:
+      - children:
+        - attributes:
+            id: gfx_canvas
+            value: '4'
+          type: Dynamic
+        type: Values
+      type: Integer
+    DisplayDriverName:
+      attributes:
+        id: DisplayDriverName
+      children:
+      - children:
+        - attributes:
+            id: gfx_canvas
+            value: xlcdcDisplayDriver
+          type: Dynamic
+        type: Values
+      type: String
+    EffectsInterval:
+      attributes:
+        id: EffectsInterval
+      children:
+      - children:
+        - attributes:
+            value: '20'
+          type: User
+        type: Values
+      type: Integer
+    GPUBlitEnabled:
+      attributes:
+        id: GPUBlitEnabled
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    NumCanvasObjects:
+      attributes:
+        id: NumCanvasObjects
+      children:
+      - children:
+        - attributes:
+            value: '6'
+          type: User
+        type: Values
+      type: Integer
+  userData: {}

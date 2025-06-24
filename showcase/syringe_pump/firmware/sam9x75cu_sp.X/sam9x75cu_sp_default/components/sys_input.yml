@@ -1,0 +1,121 @@
+configVersion: 1.0.0
+componentName: sys_input
+coreVersion: 5.8.2
+device: SAM9X75D2G
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: sys_input
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: gfx
+  type: package
+  version: v3.16.1
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: sys_input
+          x: '412'
+          y: '109'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    TransformTouchCoords_DisplayH:
+      attributes:
+        id: TransformTouchCoords_DisplayH
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '1280'
+          type: User
+        type: Values
+      type: Integer
+    TransformTouchCoords_DisplayW:
+      attributes:
+        id: TransformTouchCoords_DisplayW
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '400'
+          type: User
+        type: Values
+      type: Integer
+    TransformTouchCoords_SwapXY:
+      attributes:
+        id: TransformTouchCoords_SwapXY
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    TransformTouchCoords_TouchH:
+      attributes:
+        id: TransformTouchCoords_TouchH
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '1280'
+          type: User
+        type: Values
+      type: Integer
+    TransformTouchCoords_TouchW:
+      attributes:
+        id: TransformTouchCoords_TouchW
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '400'
+          type: User
+        type: Values
+      type: Integer
+  userData: {}
