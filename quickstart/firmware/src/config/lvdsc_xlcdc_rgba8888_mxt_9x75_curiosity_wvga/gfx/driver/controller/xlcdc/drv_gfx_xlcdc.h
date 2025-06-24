@@ -6,13 +6,13 @@
 
   Summary:
     Build-time generated header file
-    Interface for the graphics library where the primitives are rendered and 
+    Interface for the graphics library where the primitives are rendered and
     sent to the graphics controller either external or internal
 
   Description:
     This header file contains the function prototypes and definitions of
     the data types and constants that make up the interface to the XLCDC
-    Graphics Controller for SAM9X72/75 MPUs.
+    Graphics Controller for SAM9X7/SAMA7D MPUs.
 
     Created with MPLAB Harmony Version 3.0
 *******************************************************************************/
@@ -45,7 +45,7 @@
 /** \file drv_gfx_xlcdc.h
 * @brief  XLCDC Generated Driver Header File
 *
-* @details This header file contains the function prototypes and definitions of the data types and constants that make up the interface to the XLCDC Graphics Controller for SAM9X72/75 MPUs.
+* @details This header file contains the function prototypes and definitions of the data types and constants that make up the interface to the XLCDC Graphics Controller for SAM9X7/SAMA7D MPUs.
 */
 
 #ifndef _DRV_GFX_XLCDC_H

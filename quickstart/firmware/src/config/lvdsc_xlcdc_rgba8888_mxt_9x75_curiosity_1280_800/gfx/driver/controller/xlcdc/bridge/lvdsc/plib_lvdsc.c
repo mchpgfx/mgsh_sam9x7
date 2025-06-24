@@ -57,35 +57,6 @@
 
 void LVDSC_Initialize(void)
 {
-    /* Initialize LVDSPLL */
-    /* Set PLL target to LVDSPLL and configure startup time of 150us */
-    PMC_REGS->PMC_PLL_UPDT = PMC_PLL_UPDT_STUPTIM(0x6) |
-                             PMC_PLL_UPDT_ID(0x3);
-
-    /* Set the analog controls to the values recommended in the data sheet */
-    PMC_REGS->PMC_PLL_ACR = PMC_PLL_ACR_LOOP_FILTER(0x1B) |
-                            PMC_PLL_ACR_LOCK_THR(0x4) |
-                            PMC_PLL_ACR_CONTROL(0x10);
-
-    /* Set loop parameters for the fractional PLL */
-    PMC_REGS->PMC_PLL_CTRL1 = PMC_PLL_CTRL1_MUL(30 - 1) |
-                              PMC_PLL_CTRL1_FRACR(2621440);
-
-    /* Update the PLL target i.e. LVDSPLL, with the configured settings */
-    PMC_REGS->PMC_PLL_UPDT |= PMC_PLL_UPDT_UPDATE_Msk;
-
-    /* Enable and lock LVDSPLL clock, enable it for use by PMC */
-    PMC_REGS->PMC_PLL_CTRL0 = PMC_PLL_CTRL0_ENLOCK_Msk |
-                              PMC_PLL_CTRL0_ENPLL_Msk |
-                              PMC_PLL_CTRL0_DIVPMC(3 - 1) |
-                              PMC_PLL_CTRL0_ENPLLCK_Msk;
-
-    /* Update the PLL target i.e. LVDSPLL, with the configured settings */
-    PMC_REGS->PMC_PLL_UPDT |= PMC_PLL_UPDT_UPDATE_Msk;
-
-    /* Wait for PLL lock */
-    while ((PMC_REGS->PMC_PLL_ISR0 & PMC_PLL_ISR0_LVDSLOCK_Msk) != PMC_PLL_ISR0_LVDSLOCK_Msk);
-
     /* Enable LVDSC Peripheral Clock */
     PMC_REGS->PMC_PCR = PMC_PCR_CMD_Msk |
                         PMC_PCR_PID(ID_LVDSC) |

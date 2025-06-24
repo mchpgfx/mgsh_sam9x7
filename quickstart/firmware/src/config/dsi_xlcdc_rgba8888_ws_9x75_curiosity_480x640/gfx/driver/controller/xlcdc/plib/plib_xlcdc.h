@@ -87,7 +87,7 @@ typedef enum
   Remarks:
     Applies to all layers
 */
-typedef enum XLCDC_CLUT_COLOR_MODE
+typedef enum
 {
     XLCDC_CLUT_COLOR_MODE_1BPP,
     XLCDC_CLUT_COLOR_MODE_2BPP,
@@ -107,7 +107,7 @@ typedef enum XLCDC_CLUT_COLOR_MODE
   Remarks:
     Applies to all layers
 */
-typedef enum XLCDC_RGB_COLOR_MODE
+typedef enum
 {
     XLCDC_RGB_COLOR_MODE_CLUT = -1,
     XLCDC_RGB_COLOR_MODE_RGB_444,
@@ -127,29 +127,23 @@ typedef enum XLCDC_RGB_COLOR_MODE
 } XLCDC_RGB_COLOR_MODE;
 
 /*******************************************************************************
-  XLCDC YCBCR Color Modes
+  XLCDC HEO RGB Surface Descriptor
 
   Summary:
-    Enumerates the supported color modes.
-
-  Description:
-    This enumeration lists the available YCbCr modes on the XLCDC HEO Layer.
-
-  Remarks:
-    Applies to all layers
+    Parameters required to descibe an HEO RGB surface.
 */
-typedef enum XLCDC_YCBCR_COLOR_MODE
+typedef struct
 {
-    XLCDC_YCBCR_COLOR_MODE_AYCBCR_444,
-    XLCDC_YCBCR_COLOR_MODE_YCBCR_422_0, //Cr(n)Y(n+1)Cb(n)Y(n) 4:2:2
-    XLCDC_YCBCR_COLOR_MODE_YCBCR_422_1, //Y(n+1)Cr(n)Y(n)Cb(n) 4:2:2
-    XLCDC_YCBCR_COLOR_MODE_YCBCR_422_2, //Cb(n)Y(n+1)Cr(n)Y(n) 4:2:2
-    XLCDC_YCBCR_COLOR_MODE_YCBCR_422_3, //Y(n+1)Cb(n)Y(n)Cr(n) 4:2:2
-    XLCDC_YCBCR_COLOR_MODE_YCBCR_422_SEMIPLANAR,
-    XLCDC_YCBCR_COLOR_MODE_YCBCR_422_PLANAR,
-    XLCDC_YCBCR_COLOR_MODE_YCBCR_420_SEMIPLANAR,
-    XLCDC_YCBCR_COLOR_MODE_YCBCR_420_PLANAR,
-} XLCDC_YCBCR_COLOR_MODE;
+    XLCDC_RGB_COLOR_MODE colorMode;
+    uint16_t windowStartX;
+    uint16_t windowStartY;
+    uint16_t windowSizeX;
+    uint16_t windowSizeY;
+    uint16_t imageSizeX;
+    uint16_t imageSizeY;
+    void *imageAddress;
+    bool scaleToWindow;
+} XLCDC_HEO_RGB_SURFACE;
 
 /*******************************************************************************
   Function:
@@ -612,6 +606,30 @@ bool XLCDC_SetLayerAddress(XLCDC_LAYER layer, uint32_t address, bool update);
     None.
 */
 bool XLCDC_UpdateLayerAttributes(XLCDC_LAYER layer);
+
+/*******************************************************************************
+  Function:
+   bool XLCDC_DisplayHEORGBSurface(XLCDC_HEO_RGB_SURFACE *surface);
+
+   Summary:
+    Displays a HEO RGB Surface on the High-End Overlay.
+
+   Description:
+    Displays a surface on HEO and performs scaling if required.
+
+   Precondition:
+    None.
+
+   Parameters:
+    surface - Pointer to XLCDC YCbCr Surface Descriptor.
+
+   Returns:
+    0, on success. 1, on failure.
+
+   Remarks:
+    None.
+*/
+bool XLCDC_DisplayHEORGBSurface(XLCDC_HEO_RGB_SURFACE *surface);
 
 /*******************************************************************************
   Function:

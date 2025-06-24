@@ -5,11 +5,11 @@
     drv_gfx_xlcdc.c
 
   Summary:
-    Build-time generated implementation for the XLCDC Driver for SAM9X72/75 MPUs.
+    Build-time generated implementation for the XLCDC Driver for SAM9X7/SAMA7D MPUs.
 
   Description:
     Contains function definitions and the data types that make up the interface to the XLCDC
-    Graphics Controller for SAM9X72/75 MPUs.
+    Graphics Controller for SAM9X7/SAMA7D MPUs.
 
     Created with MPLAB Harmony Version 3.0
 *******************************************************************************/
@@ -39,36 +39,42 @@
 *******************************************************************************/
 // DOM-IGNORE-END
 
+#include "toolchain_specifics.h"
 #include "gfx/driver/gfx_driver.h"
+#include "gfx/driver/processor/gfx2d/drv_gfx2d.h"
 #include "gfx/driver/controller/xlcdc/drv_gfx_xlcdc.h"
-#include "definitions.h"
+#include "gfx/driver/controller/xlcdc/plib/plib_xlcdc.h"
 
 /* Utility Macros */
+/* Math */
+#define MIN(a,b) ((a) < (b) ? (a) : (b))
+#define MAX(a,b) ((a) > (b) ? (a) : (b))
+#define ABS(x) ((x) >= 0 ? (x) : -(x))
+/* Alignment Check */
+#define IS_ALIGNED(ptr, align) (((uintptr_t)(ptr) & ((align) - 1)) == 0)
 /* Frame Buffer Macros */
 /* Cached, Cache Aligned */
 #define FB_CACHE_CA             CACHE_ALIGN
 /* Not Cached */
 #define FB_CACHE_NC             __attribute__ ((section(".region_nocache"), aligned (32)))
 /* Frame Buffer Pointer Type */
+#define FB_COL_MODE             XLCDC_RGB_COLOR_MODE_RGBA_8888
 #define FB_BPP_TYPE             uint32_t
 #define FB_PTR_TYPE             FB_BPP_TYPE *
 #define FB_TYPE_SZ              sizeof(FB_BPP_TYPE)
 
 /* Driver Settings */
-#define XLCDC_TOT_LAYERS        1
-#define XLCDC_BUF_PER_LAYER     1
 #define XLCDC_HOR_RES           1280
 #define XLCDC_VER_RES           800
+#define XLCDC_TOT_LAYERS        1
+#define XLCDC_BUF_PER_LAYER     1
 
 /* Local Data */
 /* Driver */
 typedef enum
 {
     INIT = 0,
-    DRAW,
-    SWAP,
-    SYNC,
-    FREEZE
+    DRAW
 } DRV_STATE;
 
 /* Generated Layer Order */
@@ -102,7 +108,7 @@ typedef struct
     uint32_t alpha;
     FB_PTR_TYPE baseaddr[XLCDC_BUF_PER_LAYER];
     gfxPixelBuffer pixelBuffer[XLCDC_BUF_PER_LAYER];
-    volatile uint32_t bufferIdx;
+    volatile uint32_t frontBufferIdx;
     volatile LAYER_LOCK_STATUS updateLock;
 } LAYER_ATTRIBUTES;
 
@@ -152,7 +158,6 @@ void DRV_XLCDC_Update(void)
             break;
         }
         case DRAW:
-        case SWAP:
         default:
             break;
     }
@@ -166,7 +171,7 @@ gfxResult DRV_XLCDC_Initialize(void)
     /* Initialize Layer Attributes */
     for (uint32_t layerCount = 0; layerCount < XLCDC_TOT_LAYERS; layerCount++)
     {
-        drvLayer[layerCount].pixelformat = XLCDC_RGB_COLOR_MODE_RGBA_8888;
+        drvLayer[layerCount].pixelformat = FB_COL_MODE;
         drvLayer[layerCount].resx = XLCDC_HOR_RES;
         drvLayer[layerCount].resy = XLCDC_VER_RES;
         drvLayer[layerCount].startx = 0;
@@ -176,7 +181,7 @@ gfxResult DRV_XLCDC_Initialize(void)
         drvLayer[layerCount].alpha = 255;
         drvLayer[layerCount].enabled = true;
         drvLayer[layerCount].updateLock = LAYER_LOCK_UNLOCKED;
-        drvLayer[layerCount].bufferIdx = XLCDC_BUF_PER_LAYER - 1;
+        drvLayer[layerCount].frontBufferIdx = 0;
 
         for (uint32_t bufferCount = 0; bufferCount < XLCDC_BUF_PER_LAYER; ++bufferCount)
         {
@@ -192,7 +197,7 @@ gfxResult DRV_XLCDC_Initialize(void)
         }
 
         XLCDC_SetLayerEnable(layerOrder[layerCount], false, true);
-        XLCDC_SetLayerAddress(layerOrder[layerCount], (uint32_t) drvLayer[layerCount].baseaddr[drvLayer[layerCount].bufferIdx], false);
+        XLCDC_SetLayerAddress(layerOrder[layerCount], (uint32_t) drvLayer[layerCount].baseaddr[drvLayer[layerCount].frontBufferIdx], false);
         XLCDC_SetLayerOpts(layerOrder[layerCount], 255, true, false);
         XLCDC_SetLayerWindowXYPos(layerOrder[layerCount], 0, 0, false);
         XLCDC_SetLayerWindowXYSize(layerOrder[layerCount], XLCDC_HOR_RES, XLCDC_VER_RES, false);
@@ -221,7 +226,7 @@ gfxResult DRV_XLCDC_BlitBuffer(int32_t x, int32_t y, gfxPixelBuffer* buf)
     destRect.height = buf->size.height;
     destRect.width = buf->size.width;
 
-    result = gfxGPUInterface.blitBuffer(buf, &srcRect, &drvLayer[activeLayer].pixelBuffer[drvLayer[activeLayer].bufferIdx], &destRect);
+    result = gfxGPUInterface.blitBuffer(buf, &srcRect, &drvLayer[activeLayer].pixelBuffer[drvLayer[activeLayer].frontBufferIdx], &destRect);
 
     gfxPixelBuffer_SetLocked(buf, GFX_FALSE);
 
@@ -285,18 +290,20 @@ gfxDriverIOCTLResponse DRV_XLCDC_IOCTL(gfxDriverIOCTLRequest request, void* arg)
 
         case GFX_IOCTL_SET_ACTIVE_LAYER:
         {
+            gfxDriverIOCTLResponse response = GFX_IOCTL_OK;
+
             val = (gfxIOCTLArg_Value *)arg;
 
             if (val->value.v_uint >= XLCDC_TOT_LAYERS)
             {
-                return GFX_IOCTL_ERROR_UNKNOWN;
+                response =  GFX_IOCTL_ERROR_UNKNOWN;
             }
             else
             {
                 activeLayer = val->value.v_uint;
-
-                return GFX_IOCTL_OK;
             }
+
+            return response;
         }
 
         case GFX_IOCTL_GET_LAYER_RECT:
@@ -329,7 +336,7 @@ gfxDriverIOCTLResponse DRV_XLCDC_IOCTL(gfxDriverIOCTLRequest request, void* arg)
         {
             val = (gfxIOCTLArg_Value *)arg;
 
-            val->value.v_pbuffer = &drvLayer[activeLayer].pixelBuffer[drvLayer[activeLayer].bufferIdx];
+            val->value.v_pbuffer = &drvLayer[activeLayer].pixelBuffer[drvLayer[activeLayer].frontBufferIdx];
 
             return GFX_IOCTL_OK;
         }
