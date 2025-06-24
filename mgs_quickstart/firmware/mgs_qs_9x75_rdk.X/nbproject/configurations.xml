@@ -449,8 +449,37 @@
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="true">
+      <logicalFolder name="mgs_qs_9x75_rdk_rdk"
+                     displayName="mgs_qs_9x75_rdk_rdk"
+                     projectFiles="true">
+        <logicalFolder name="components" displayName="components" projectFiles="true">
+          <itemPath>mgs_qs_9x75_rdk_rdk/components/sys_time.yml</itemPath>
+          <itemPath>mgs_qs_9x75_rdk_rdk/components/dfp.yml</itemPath>
+          <itemPath>mgs_qs_9x75_rdk_rdk/components/drv_i2c_0.yml</itemPath>
+          <itemPath>mgs_qs_9x75_rdk_rdk/components/core.yml</itemPath>
+          <itemPath>mgs_qs_9x75_rdk_rdk/components/le_gfx_driver_xlcdc.yml</itemPath>
+          <itemPath>mgs_qs_9x75_rdk_rdk/components/sys_input.yml</itemPath>
+          <itemPath>mgs_qs_9x75_rdk_rdk/components/plib_gfx2d.yml</itemPath>
+          <itemPath>mgs_qs_9x75_rdk_rdk/components/adc.yml</itemPath>
+          <itemPath>mgs_qs_9x75_rdk_rdk/components/flexcom7.yml</itemPath>
+          <itemPath>mgs_qs_9x75_rdk_rdk/components/mgs_web_sim.yml</itemPath>
+          <itemPath>mgs_qs_9x75_rdk_rdk/components/rtt.yml</itemPath>
+          <itemPath>mgs_qs_9x75_rdk_rdk/components/gfx_legato.yml</itemPath>
+          <itemPath>mgs_qs_9x75_rdk_rdk/components/gfx_display_comp_waveshare_4in_round_dsi.yml</itemPath>
+          <itemPath>mgs_qs_9x75_rdk_rdk/components/stdio.yml</itemPath>
+          <itemPath>mgs_qs_9x75_rdk_rdk/components/drv_i2c.yml</itemPath>
+          <itemPath>mgs_qs_9x75_rdk_rdk/components/gfx_bridge_dsi_plib.yml</itemPath>
+          <itemPath>mgs_qs_9x75_rdk_rdk/components/HarmonyCore.yml</itemPath>
+          <itemPath>mgs_qs_9x75_rdk_rdk/components/le_gfx_gfx2d.yml</itemPath>
+          <itemPath>mgs_qs_9x75_rdk_rdk/components/dbgu.yml</itemPath>
+        </logicalFolder>
+        <itemPath>mgs_qs_9x75_rdk_rdk/mcc-config.mc4</itemPath>
+      </logicalFolder>
       <itemPath>Makefile</itemPath>
-      <itemPath>legato_qs_9x75_curiosity_ws_4inch_round.mc3</itemPath>
+    </logicalFolder>
+    <logicalFolder name="LibraryFiles"
+                   displayName="LibraryFiles"
+                   projectFiles="true">
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"

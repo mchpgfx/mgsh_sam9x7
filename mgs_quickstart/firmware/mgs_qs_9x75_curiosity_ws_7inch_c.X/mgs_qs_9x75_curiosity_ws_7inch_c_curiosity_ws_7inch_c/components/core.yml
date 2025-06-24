@@ -1,0 +1,234 @@
+configVersion: 1.0.0
+componentName: core
+coreVersion: 5.8.2
+device: SAM9X75D2G
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: core
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: core
+  type: package
+  version: v3.15.2
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.22.4
+- dependencyPackage: ''
+  name: gfx
+  type: package
+  version: v3.16.1
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: core
+          x: '0'
+          y: '43'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    FLEXCOM7_CLOCK_ENABLE:
+      attributes:
+        id: FLEXCOM7_CLOCK_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: flexcom7
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    FLEXCOM7_CLOCK_FREQUENCY:
+      attributes:
+        id: FLEXCOM7_CLOCK_FREQUENCY
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '266666666'
+          type: Dynamic
+        type: Values
+      type: Integer
+    FLEXCOM7_INTERRUPT_ENABLE:
+      attributes:
+        id: FLEXCOM7_INTERRUPT_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: flexcom7
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    FLEXCOM7_INTERRUPT_HANDLER:
+      attributes:
+        id: FLEXCOM7_INTERRUPT_HANDLER
+      children:
+      - children:
+        - attributes:
+            id: flexcom7
+            value: FLEXCOM7_InterruptHandler
+          type: Dynamic
+        type: Values
+      type: String
+    FLEXCOM7_INTERRUPT_HANDLER_LOCK:
+      attributes:
+        id: FLEXCOM7_INTERRUPT_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: flexcom7
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    GFX2D_CLOCK_ENABLE:
+      attributes:
+        id: GFX2D_CLOCK_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: plib_gfx2d
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    PIN_107_FUNCTION_TYPE:
+      attributes:
+        id: PIN_107_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: FLEXCOM7_IO1
+          type: User
+        type: Values
+      type: String
+    PIN_107_PERIPHERAL_FUNCTION:
+      attributes:
+        id: PIN_107_PERIPHERAL_FUNCTION
+      children:
+      - children:
+        - attributes:
+            value: C
+          type: User
+        type: Values
+      type: String
+    PIN_93_FUNCTION_TYPE:
+      attributes:
+        id: PIN_93_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: FLEXCOM7_IO0
+          type: User
+        type: Values
+      type: String
+    PIN_93_PERIPHERAL_FUNCTION:
+      attributes:
+        id: PIN_93_PERIPHERAL_FUNCTION
+      children:
+      - children:
+        - attributes:
+            value: C
+          type: User
+        type: Values
+      type: String
+    PIOC_ABCDSR1_VALUE:
+      attributes:
+        id: PIOC_ABCDSR1_VALUE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PIOC_ABCDSR2_VALUE:
+      attributes:
+        id: PIOC_ABCDSR2_VALUE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '3'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PIOC_PDR_VALUE:
+      attributes:
+        id: PIOC_PDR_VALUE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '3'
+          type: Dynamic
+        type: Values
+      type: Hex
+    RTT_INTERRUPT_ENABLE:
+      attributes:
+        id: RTT_INTERRUPT_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: rtt
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    RTT_INTERRUPT_HANDLER:
+      attributes:
+        id: RTT_INTERRUPT_HANDLER
+      children:
+      - children:
+        - attributes:
+            id: rtt
+            value: RTT_InterruptHandler
+          type: Dynamic
+        type: Values
+      type: String
+    RTT_INTERRUPT_HANDLER_LOCK:
+      attributes:
+        id: RTT_INTERRUPT_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: rtt
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    SYSC_INTERRUPT_ENABLE:
+      attributes:
+        id: SYSC_INTERRUPT_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+  userData:
+    children:
+    - attributes:
+        canvasHeight: '455'
+        canvasWidth: '826'
+      type: GraphSettings
+    - children:
+      - attributes:
+          id: profile0
+          name: Main
+        type: Profile
+      type: PowerProfiles
+    type: UserData
