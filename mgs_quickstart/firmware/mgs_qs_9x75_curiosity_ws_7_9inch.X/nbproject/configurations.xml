@@ -439,26 +439,31 @@
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="true">
+      <logicalFolder name="mgs_qs_9x75_curiosity_ws_7_9inch_curiosity_ws_7_9in"
+                     displayName="mgs_qs_9x75_curiosity_ws_7_9inch_curiosity_ws_7_9in"
+                     projectFiles="true">
+        <logicalFolder name="components" displayName="components" projectFiles="true">
+          <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_curiosity_ws_7_9in/components/plib_gfx2d.yml</itemPath>
+          <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_curiosity_ws_7_9in/components/flexcom6.yml</itemPath>
+          <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_curiosity_ws_7_9in/components/drv_i2c.yml</itemPath>
+          <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_curiosity_ws_7_9in/components/gfx_legato.yml</itemPath>
+          <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_curiosity_ws_7_9in/components/dfp.yml</itemPath>
+          <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_curiosity_ws_7_9in/components/HarmonyCore.yml</itemPath>
+          <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_curiosity_ws_7_9in/components/rtt.yml</itemPath>
+          <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_curiosity_ws_7_9in/components/le_gfx_gfx2d.yml</itemPath>
+          <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_curiosity_ws_7_9in/components/le_gfx_driver_xlcdc.yml</itemPath>
+          <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_curiosity_ws_7_9in/components/sys_time.yml</itemPath>
+          <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_curiosity_ws_7_9in/components/sys_input.yml</itemPath>
+          <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_curiosity_ws_7_9in/components/core.yml</itemPath>
+          <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_curiosity_ws_7_9in/components/gfx_display_comp_waveshare_7_9in_dsi.yml</itemPath>
+          <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_curiosity_ws_7_9in/components/gfx_bridge_dsi_plib.yml</itemPath>
+          <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_curiosity_ws_7_9in/components/drv_i2c_0.yml</itemPath>
+        </logicalFolder>
+        <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_curiosity_ws_7_9in/mcc-config.mc4</itemPath>
+      </logicalFolder>
       <logicalFolder name="mgs_qs_9x75_curiosity_ws_7_9inch_dsi_xlcdc_rgba8888_ws_9x75_curiosity_400x1280"
                      displayName="mgs_qs_9x75_curiosity_ws_7_9inch_dsi_xlcdc_rgba8888_ws_9x75_curiosity_400x1280"
                      projectFiles="true">
-        <logicalFolder name="components" displayName="components" projectFiles="true">
-          <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_dsi_xlcdc_rgba8888_ws_9x75_curiosity_400x1280/components/dfp.yml</itemPath>
-          <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_dsi_xlcdc_rgba8888_ws_9x75_curiosity_400x1280/components/HarmonyCore.yml</itemPath>
-          <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_dsi_xlcdc_rgba8888_ws_9x75_curiosity_400x1280/components/sys_input.yml</itemPath>
-          <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_dsi_xlcdc_rgba8888_ws_9x75_curiosity_400x1280/components/gfx_bridge_dsi_plib.yml</itemPath>
-          <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_dsi_xlcdc_rgba8888_ws_9x75_curiosity_400x1280/components/sys_time.yml</itemPath>
-          <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_dsi_xlcdc_rgba8888_ws_9x75_curiosity_400x1280/components/plib_gfx2d.yml</itemPath>
-          <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_dsi_xlcdc_rgba8888_ws_9x75_curiosity_400x1280/components/rtt.yml</itemPath>
-          <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_dsi_xlcdc_rgba8888_ws_9x75_curiosity_400x1280/components/gfx_display_comp_waveshare_7_9in_dsi.yml</itemPath>
-          <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_dsi_xlcdc_rgba8888_ws_9x75_curiosity_400x1280/components/le_gfx_driver_xlcdc.yml</itemPath>
-          <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_dsi_xlcdc_rgba8888_ws_9x75_curiosity_400x1280/components/drv_i2c_0.yml</itemPath>
-          <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_dsi_xlcdc_rgba8888_ws_9x75_curiosity_400x1280/components/drv_i2c.yml</itemPath>
-          <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_dsi_xlcdc_rgba8888_ws_9x75_curiosity_400x1280/components/gfx_legato.yml</itemPath>
-          <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_dsi_xlcdc_rgba8888_ws_9x75_curiosity_400x1280/components/core.yml</itemPath>
-          <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_dsi_xlcdc_rgba8888_ws_9x75_curiosity_400x1280/components/flexcom6.yml</itemPath>
-          <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_dsi_xlcdc_rgba8888_ws_9x75_curiosity_400x1280/components/le_gfx_gfx2d.yml</itemPath>
-        </logicalFolder>
         <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_dsi_xlcdc_rgba8888_ws_9x75_curiosity_400x1280/mcc-config.mc4</itemPath>
       </logicalFolder>
       <itemPath>Makefile</itemPath>
@@ -987,7 +992,7 @@
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-cross-reference-file" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
-        <property key="heap-size" value="512"/>
+        <property key="heap-size" value="0"/>
         <property key="input-libraries" value=""/>
         <property key="kseg-length" value=""/>
         <property key="kseg-origin" value=""/>
