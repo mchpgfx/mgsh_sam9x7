@@ -461,11 +461,6 @@
         </logicalFolder>
         <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_curiosity_ws_7_9in/mcc-config.mc4</itemPath>
       </logicalFolder>
-      <logicalFolder name="mgs_qs_9x75_curiosity_ws_7_9inch_dsi_xlcdc_rgba8888_ws_9x75_curiosity_400x1280"
-                     displayName="mgs_qs_9x75_curiosity_ws_7_9inch_dsi_xlcdc_rgba8888_ws_9x75_curiosity_400x1280"
-                     projectFiles="true">
-        <itemPath>mgs_qs_9x75_curiosity_ws_7_9inch_dsi_xlcdc_rgba8888_ws_9x75_curiosity_400x1280/mcc-config.mc4</itemPath>
-      </logicalFolder>
       <itemPath>Makefile</itemPath>
       <itemPath>../src/config/curiosity_ws_7_9in/pin_configurations.csv</itemPath>
     </logicalFolder>
