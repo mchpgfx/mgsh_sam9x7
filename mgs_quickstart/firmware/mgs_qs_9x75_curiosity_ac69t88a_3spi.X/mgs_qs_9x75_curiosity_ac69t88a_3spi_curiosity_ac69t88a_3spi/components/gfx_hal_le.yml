@@ -1,0 +1,84 @@
+configVersion: 1.0.0
+componentName: gfx_hal_le
+coreVersion: 5.8.3
+device: SAM9X75D2G
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: gfx_hal_le
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: gfx
+  type: package
+  version: v3.16.3
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: gfx_hal_le
+          x: '487'
+          y: '76'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    DriverName:
+      attributes:
+        id: DriverName
+      children:
+      - children:
+        - attributes:
+            id: le_gfx_driver_external
+            value: LE External Controller
+          type: Dynamic
+        type: Values
+      type: String
+    gfx_driver:
+      attributes:
+        id: gfx_driver
+      children:
+      - children:
+        - attributes:
+            id: le_gfx_driver_external
+            value: le_gfx_driver_external
+          type: Dynamic
+        type: Values
+      type: String
+    RefreshRate:
+      attributes:
+        id: RefreshRate
+      children:
+      - children:
+        - attributes:
+            id: gfx_hal_le
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Integer
+    DisplayWidth:
+      attributes:
+        id: DisplayWidth
+      children:
+      - children:
+        - attributes:
+            value: '240'
+          type: User
+        type: Values
+      type: Integer
+    DisplayHeight:
+      attributes:
+        id: DisplayHeight
+      children:
+      - children:
+        - attributes:
+            value: '240'
+          type: User
+        type: Values
+      type: Integer
+  userData: {}

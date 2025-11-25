@@ -1,0 +1,17 @@
+RPI SPI Interface: Flexcom 3
+
+MOSI: Pin 19, PC22
+MISO: Pin 21, PC23
+SCK: Pin 23, PC26
+CS0: PIn 24, PC25
+CS1: pin 35, PB15
+CS2: pin 12, PB26
+
+Workaround for Waveshare LCD:
+D/C: Pin 3, PC0
+Reset: Pin 5, PC1 //Unused, RST is pulled to 3.3V via pin 17 > pin 18 jumper)
+BL: Pin 7, PB25
+
+
+
+
