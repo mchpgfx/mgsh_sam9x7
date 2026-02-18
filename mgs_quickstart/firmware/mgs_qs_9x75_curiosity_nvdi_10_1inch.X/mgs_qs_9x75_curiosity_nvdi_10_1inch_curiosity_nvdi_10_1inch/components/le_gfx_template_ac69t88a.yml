@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 componentName: le_gfx_template_ac69t88a
-coreVersion: 5.8.2
+coreVersion: 5.8.4
 device: SAM9X75D2G
 library: []
 dependency:
@@ -22,8 +22,8 @@ data:
     - children:
       - attributes:
           id: le_gfx_template_ac69t88a
-          x: '357'
-          y: '7'
+          x: '397'
+          y: '18'
         type: ElementPosition
       type: ElementPositions
     type: ComponentGraph

@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 componentName: HarmonyCore
-coreVersion: 5.8.2
+coreVersion: 5.8.4
 device: SAM9X75D2G
 library: []
 dependency:
@@ -22,8 +22,8 @@ data:
     - children:
       - attributes:
           id: HarmonyCore
-          x: '74'
-          y: '33'
+          x: '63'
+          y: '35'
         type: ElementPosition
       type: ElementPositions
     type: ComponentGraph

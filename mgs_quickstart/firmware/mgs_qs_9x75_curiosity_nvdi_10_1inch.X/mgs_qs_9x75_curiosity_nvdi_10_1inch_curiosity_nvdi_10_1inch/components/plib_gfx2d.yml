@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 componentName: plib_gfx2d
-coreVersion: 5.8.2
+coreVersion: 5.8.4
 device: SAM9X75D2G
 library: []
 dependency:
@@ -44,8 +44,8 @@ data:
     - children:
       - attributes:
           id: plib_gfx2d
-          x: '267'
-          y: '441'
+          x: '342'
+          y: '442'
         type: ElementPosition
       type: ElementPositions
     type: ComponentGraph

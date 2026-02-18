@@ -2,15 +2,15 @@
 
 manifest_file_version: 1.0.0
 project: mgs_qs_9x75_curiosity_nvdi_10_1inch
-creation_date: 2025-06-23T16:02:51.265-07:00[America/Phoenix]
+creation_date: 2026-02-18T12:16:18.526+05:30[Asia/Calcutta]
 operating_system: Windows 11
 mcc_mode: IDE
-mcc_mode_version: v6.25
+mcc_mode_version: v6.30
 device_name: SAM9X75D2G
-compiler: XC32 4.45
-mcc_version: 5.6.2
-mcc_core_version: 5.8.2
-content_manager_version: 6.0.1
+compiler: XC32 5.00
+mcc_version: 5.6.4
+mcc_core_version: 5.8.4
+content_manager_version: 6.0.4
 is_mcc_offline: false
 is_using_prerelease_versions: false
 mcc_content_registries: https://registry.npmjs.org/

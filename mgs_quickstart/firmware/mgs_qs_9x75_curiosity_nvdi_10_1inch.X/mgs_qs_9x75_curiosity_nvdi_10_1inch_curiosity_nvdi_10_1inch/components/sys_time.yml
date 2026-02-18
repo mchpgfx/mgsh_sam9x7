@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 componentName: sys_time
-coreVersion: 5.8.2
+coreVersion: 5.8.4
 device: SAM9X75D2G
 library: []
 dependency:
@@ -44,8 +44,8 @@ data:
     - children:
       - attributes:
           id: sys_time
-          x: '138'
-          y: '432'
+          x: '171'
+          y: '442'
         type: ElementPosition
       type: ElementPositions
     type: ComponentGraph

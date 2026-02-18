@@ -137,8 +137,8 @@ void XLCDC_EnableClocks(void)
                             PMC_PLL_ACR_CONTROL(0x10);
 
     /* Set loop parameters for the fractional PLL */
-    PMC_REGS->PMC_PLL_CTRL1 = PMC_PLL_CTRL1_MUL(30 - 1) |
-                              PMC_PLL_CTRL1_FRACR(2621441);
+    PMC_REGS->PMC_PLL_CTRL1 = PMC_PLL_CTRL1_MUL(37 - 1) |
+                              PMC_PLL_CTRL1_FRACR(174763);
 
     /* Update the PLL target i.e. LVDSPLL, with the configured settings */
     PMC_REGS->PMC_PLL_UPDT |= PMC_PLL_UPDT_UPDATE_Msk;
@@ -146,7 +146,7 @@ void XLCDC_EnableClocks(void)
     /* Enable and lock LVDSPLL clock, enable it for use by PMC */
     PMC_REGS->PMC_PLL_CTRL0 = PMC_PLL_CTRL0_ENLOCK_Msk |
                               PMC_PLL_CTRL0_ENPLL_Msk |
-                              PMC_PLL_CTRL0_DIVPMC(3 - 1) |
+                              PMC_PLL_CTRL0_DIVPMC(2 - 1) |
                               PMC_PLL_CTRL0_ENPLLCK_Msk;
 
     /* Update the PLL target i.e. LVDSPLL, with the configured settings */

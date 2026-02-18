@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 componentName: gfx_maxtouch_controller
-coreVersion: 5.8.2
+coreVersion: 5.8.4
 device: SAM9X75D2G
 library: []
 dependency:
@@ -62,8 +62,8 @@ data:
     - children:
       - attributes:
           id: gfx_maxtouch_controller
-          x: '300'
-          y: '139'
+          x: '387'
+          y: '138'
         type: ElementPosition
       type: ElementPositions
     type: ComponentGraph

@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 componentName: gfx_legato
-coreVersion: 5.8.2
+coreVersion: 5.8.4
 device: SAM9X75D2G
 library: []
 dependency:
@@ -62,8 +62,8 @@ data:
     - children:
       - attributes:
           id: gfx_legato
-          x: '557'
-          y: '347'
+          x: '728'
+          y: '353'
         type: ElementPosition
       type: ElementPositions
     type: ComponentGraph

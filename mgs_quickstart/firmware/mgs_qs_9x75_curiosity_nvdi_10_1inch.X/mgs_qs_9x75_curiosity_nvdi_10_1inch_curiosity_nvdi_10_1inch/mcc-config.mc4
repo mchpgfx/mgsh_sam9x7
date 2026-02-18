@@ -1,6 +1,6 @@
 configVersion: 1.0.0
-coreVersion: 5.8.2
-spaHostVersion: 1.0.0
+coreVersion: 5.8.4
+spaHostVersion: 1.2.1
 device: SAM9X75D2G
 deviceLibrary:
   className: com.microchip.mcc.harmony.Harmony3Library
@@ -68,7 +68,7 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\curiosity_nvdi_10_1inch\gfx\driver\controller\xlcdc\drv_gfx_xlcdc.h
   hash: 637d343cc20356dfb08492f7a3e97479ad421b88ffec123181330eb895f50689
 - file: ..\src\config\curiosity_nvdi_10_1inch\gfx\driver\controller\xlcdc\plib\plib_xlcdc.c
-  hash: 8d9887530770eceb6cb478d3910e8bdadd343fe7717e3100bffff28ba0ee6ea0
+  hash: 0c908188fcb049db973cf4b6435bf3f8ef0c6612de532ea1a719f0c0e00c5130
 - file: ..\src\config\curiosity_nvdi_10_1inch\gfx\driver\controller\xlcdc\plib\plib_xlcdc.h
   hash: cdd70b5efe9e854ce1530a32a65119c2af79f22f90e0e661d4127113df72c17a
 - file: ..\src\config\curiosity_nvdi_10_1inch\gfx\driver\gfx_driver.c
@@ -680,7 +680,6 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\curiosity_nvdi_10_1inch\user.h
   hash: 451e0878e9fcf6cf9fab046c1452ea662757988346c7f39e6bc98478ca25f995
 - file: ..\src\main.c
-  hash: null
 - file: ..\src\packs\SAM9X75D2G_DFP\component\adc.h
   hash: b5418ec6d5d22ea46e311c23a79fd35f81d009457643c61d7981c599c0702d9c
 - file: ..\src\packs\SAM9X75D2G_DFP\component\aes.h

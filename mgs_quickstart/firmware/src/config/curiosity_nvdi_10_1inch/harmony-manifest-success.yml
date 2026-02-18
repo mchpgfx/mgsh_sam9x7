@@ -4,14 +4,14 @@
 
 
 project: mgs_qs_9x75_curiosity_nvdi_10_1inch
-creation_date: 2025-06-23T16:02:51.357-07:00[America/Phoenix]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2026-02-18T12:16:18.755+05:30[Asia/Calcutta]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 11
 mcc_mode: IDE            # [IDE|Standalone|Headless]
-mcc_version: v5.6.2
-mcc_core_version: v5.8.2
-mplabx_version: v6.25        # if MPLAB X plugin only
-harmony_version: v5.6.2
-compiler: XC32 4.45
+mcc_version: v5.6.4
+mcc_core_version: v5.8.4
+mplabx_version: v6.30        # if MPLAB X plugin only
+harmony_version: v5.6.4
+compiler: XC32 5.00
 
 modules:
     - {name: "core", version: "v3.15.2"}

@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 componentName: le_gfx_driver_xlcdc
-coreVersion: 5.8.2
+coreVersion: 5.8.4
 device: SAM9X75D2G
 library: []
 dependency:
@@ -74,42 +74,12 @@ data:
     - children:
       - attributes:
           id: le_gfx_driver_xlcdc
-          x: '369'
+          x: '394'
           y: '261'
         type: ElementPosition
       type: ElementPositions
     type: ComponentGraph
   symbols:
-    LVDSClockDivPMC:
-      attributes:
-        id: LVDSClockDivPMC
-      children:
-      - children:
-        - attributes:
-            value: '3'
-          type: User
-        type: Values
-      type: Integer
-    LVDSClockFrac:
-      attributes:
-        id: LVDSClockFrac
-      children:
-      - children:
-        - attributes:
-            value: '2621441'
-          type: User
-        type: Values
-      type: Integer
-    LVDSClockMul:
-      attributes:
-        id: LVDSClockMul
-      children:
-      - children:
-        - attributes:
-            value: '30'
-          type: User
-        type: Values
-      type: Integer
     LVDSClockOutHint:
       attributes:
         id: LVDSClockOutHint
@@ -117,7 +87,7 @@ data:
       - children:
         - attributes:
             id: le_gfx_driver_xlcdc
-            value: '245000001'
+            value: '444500000'
           type: Dynamic
         type: Values
       type: Integer
@@ -158,7 +128,7 @@ data:
       - children:
         - attributes:
             id: le_gfx_driver_xlcdc
-            value: '35000000'
+            value: '63500000'
           type: Dynamic
         type: Values
       type: Integer
@@ -323,4 +293,34 @@ data:
           type: User
         type: Values
       type: Boolean
+    LVDSClockFrac:
+      attributes:
+        id: LVDSClockFrac
+      children:
+      - children:
+        - attributes:
+            value: '174763'
+          type: User
+        type: Values
+      type: Integer
+    LVDSClockMul:
+      attributes:
+        id: LVDSClockMul
+      children:
+      - children:
+        - attributes:
+            value: '37'
+          type: User
+        type: Values
+      type: Integer
+    LVDSClockDivPMC:
+      attributes:
+        id: LVDSClockDivPMC
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: Integer
   userData: {}
